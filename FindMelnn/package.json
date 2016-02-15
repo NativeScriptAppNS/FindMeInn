@@ -1,0 +1,8 @@
+{
+  "nativescript": {
+    "id": "org.nativescript.FindMelnn"
+  },
+  "dependencies": {
+    "tns-core-modules": "1.5.2"
+  }
+}
