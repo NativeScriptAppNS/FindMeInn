@@ -1,0 +1,21 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" >
+  <GridLayout>
+    <ScrollView>
+      <StackLayout>
+        <Image src="res://logo" cssClass="logo" stretch="none" />
+
+        <Label text="SignIn" margin="8 16 16 16" cssClass="header"/>
+
+        <TextField text="{{ username }}" hint="Enter your username" autocapitalizationType="none" autocorrect="false" />
+        <Border cssClass="textFieldBorder" />
+        <TextField text="{{ password }}" secure="true" hint="Enter your password" />
+        <Border cssClass="textFieldBorder" />
+
+        <Button text="SignIn" tap="signinButtonTap" cssClass="primaryButton"/>
+        <Button text="SignUp" tap="signupButtonTap" cssClass="secondaryButton"/>
+      </StackLayout>
+    </ScrollView>
+
+    <ActivityIndicator busy="{{ isLoading }}" />
+  </GridLayout>
+</Page>
