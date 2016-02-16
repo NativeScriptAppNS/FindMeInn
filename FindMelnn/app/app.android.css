@@ -1,0 +1,40 @@
+Page {
+    background-color: #F7F4ED;
+}
+
+Label {
+    color: #55443B;
+    font-size: 16;
+    vertical-align: center;
+}
+
+TextField, TextView {
+    margin: 0 16 0 16;
+}
+
+ActivityIndicator {
+    horizontal-align: center;
+    vertical-align: center;
+}
+
+.header {
+    font-size: 26;
+    margin: 8 16 0 16;
+}
+
+.logo {
+    horizontal-align: center;
+    margin-top: 40
+}
+
+.primaryButton {
+    background-color: #259B24;
+    color: #FFFFFF;
+    margin: 10;
+}
+
+.secondaryButton {
+    color: #259B24;
+    background-color: #00FFFF;
+    margin: 10;
+}
