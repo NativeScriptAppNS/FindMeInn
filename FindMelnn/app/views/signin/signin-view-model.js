@@ -43,12 +43,10 @@ var SigninViewModel = (function (_super) {
             return;
         }
         
-        console.log(2);
         if (!this.beginLoading()) {
             return;
         }
         
-        console.log(3);
         var _context = this;
         timer.setTimeout(function () {
             _context.showInfo("You are fake signed in");
