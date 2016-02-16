@@ -111,6 +111,11 @@ var SearchViewModel = (function (_super) {
         timer.setTimeout(function () {
             _context.showInfo("You find");
             _context.endLoading();
+            
+            navigationModule.navigateTo({
+                moduleName: "views/result/result",
+                backstackVisible: true
+            });
         }, 2000);
     };
     
