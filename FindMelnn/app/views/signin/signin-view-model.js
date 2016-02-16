@@ -39,7 +39,6 @@ var SigninViewModel = (function (_super) {
     });
     
     SigninViewModel.prototype.signin = function () {
-        console.log(1);
         if (!this.IsValidData()) {
             return;
         }
@@ -56,6 +55,11 @@ var SigninViewModel = (function (_super) {
             _context.password = "";
             _context.username = "";
             _context.endLoading();
+            
+            navigationModule.navigate({
+                moduleName: viewsModule.Views.signUp,
+                backstackVisible: false
+            });
         }, 2000);
     };
     

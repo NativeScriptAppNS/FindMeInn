@@ -1,0 +1,47 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" >
+  <GridLayout>
+    <ScrollView>
+      <StackLayout>
+        <Image src="res://logo" cssClass="logo" stretch="none" />
+
+        <StackLayout orientation="horizontal">  
+            <Label text="City:"/>
+            <TextField text="{{ city }}" hint="Enter a city" autocapitalizationType="none" autocorrect="false" />
+        </StackLayout>
+        <Border />
+        
+        <StackLayout orientation="horizontal">  
+            <Label text="Maximum distance:"/>
+            <TextField text="{{ distance }}" hint="Enter distance in km" autocapitalizationType="none" autocorrect="false" />
+        </StackLayout>
+        <Border />
+        
+        <StackLayout orientation="horizontal">  
+            <Label text="Number of bedrooms:"/>
+            <TextField text="{{ bedroomsCount }}" hint="Enter the number of bedrooms" autocapitalizationType="none" autocorrect="false" />
+        </StackLayout>
+        <Border />
+        
+        <StackLayout orientation="horizontal">  
+            <Label text="Number of beds:"/>
+            <TextField text="{{ bedsCount }}" hint="Enter the number of beds" autocapitalizationType="none" autocorrect="false" />
+        </StackLayout>
+        <Border />
+        
+        <StackLayout orientation="horizontal">
+            <Label text="Min price:"/>
+            <Slider value="{{ minPrice }}" />
+        </StackLayout>
+        
+        <StackLayout orientation="horizontal">
+            <Label text="Max price:"/>
+            <Slider value="{{ maxPrice }}" />
+        </StackLayout>
+
+        <Button text="Find" tap="findButtonTap" cssClass="primaryButton"/>
+      </StackLayout>
+    </ScrollView>
+
+    <ActivityIndicator busy="{{ isLoading }}" />
+  </GridLayout>
+</Page>
