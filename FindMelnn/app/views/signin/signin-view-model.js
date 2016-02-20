@@ -54,6 +54,11 @@ var SigninViewModel = (function (_super) {
             _context.username = "";
             _context.endLoading();
         }, 2000);
+
+        navigationModule.navigateTo({
+                moduleName: "views/search/search",
+                backstackVisible: true
+            });
     };
     
     SigninViewModel.prototype.signup = function () {

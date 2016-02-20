@@ -11,5 +11,11 @@ function findButtonTap(args) {
     viewModel.find();
 }
 
+function favButtonTap() {
+	console.log('HERE');
+	viewModel.goToFavourites();
+}
+
 exports.navigatingTo = navigatingTo;
 exports.findButtonTap = findButtonTap;
+exports.favButtonTap = favButtonTap;

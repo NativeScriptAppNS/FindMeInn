@@ -4,15 +4,14 @@
       <StackLayout>
         <Image src="res://logo" cssClass="logo" stretch="none" />
 
-        <Label text="SignIn" cssClass="header"/>
-
-        <TextField text="{{ username }}" hint="Enter your username" autocapitalizationType="none" autocorrect="false" />
+        <TextField text="{{ username }}" cssClass="signinTextField" hint="Enter your username" autocapitalizationType="none" autocorrect="false" />
         <Border />
-        <TextField text="{{ password }}" secure="true" hint="Enter your password" />
+        <TextField text="{{ password }}" cssClass="signinTextField" secure="true" hint="Enter your password" />
         <Border />
-
         <Button text="SignIn" tap="signinButtonTap" cssClass="primaryButton"/>
-        <Button text="SignUp" tap="signupButtonTap" cssClass="secondaryButton"/>
+
+        <Label text="New user?" cssClass="signinLabel"/>
+        <Button text="SignUp" tap="signupButtonTap" cssClass="primaryButton"/>
       </StackLayout>
     </ScrollView>
 

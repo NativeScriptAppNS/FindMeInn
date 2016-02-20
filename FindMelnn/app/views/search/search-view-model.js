@@ -118,6 +118,13 @@ var SearchViewModel = (function (_super) {
             });
         }, 2000);
     };
+
+    SearchViewModel.prototype.goToFavourites = function() {
+        navigationModule.navigateTo({
+                moduleName: "views/favourites/favourites",
+                backstackVisible: true
+            });
+    };
     
     SearchViewModel.prototype.IsValidData = function () {
         

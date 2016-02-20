@@ -1,47 +1,43 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" >
-  <GridLayout>
+    <Page.actionBar>
+        <ActionBar title="Title">
+          <ActionBar.titleView>
+            <StackLayout orientation="horizontal">
+              <Image src="res://icon" width="50px"/>
+              <Label text="FindMeInn" />
+              <Button text="&#xf15f;" cssClass="favouritesButton materialIcon" tap="favButtonTap"/>
+            </StackLayout>
+          </ActionBar.titleView>
+        </ActionBar>
+    </Page.actionBar>
     <ScrollView>
-      <StackLayout>
-        <Image src="res://logo" cssClass="logo" stretch="none" />
+      <GridLayout columns="*, 3*" rows="2*,*,*,*,*,*,*,*">      
+            <Image src="res://logo" cssClass="logo" stretch="none" col="0" row="0" colSpan="2" />
 
-        <StackLayout orientation="horizontal">  
-            <Label text="City:"/>
-            <TextField text="{{ city }}" hint="Enter a city" autocapitalizationType="none" autocorrect="false" />
-        </StackLayout>
-        <Border />
+            <Label text="City:" textWrap="true" col="0" row="1"/>
+            <TextField text="{{ city }}" hint="Enter a city" tocapitalizationType="none" autocorrect="false" col="1" row="1"/>
         
-        <StackLayout orientation="horizontal">  
-            <Label text="Maximum distance:"/>
-            <TextField text="{{ distance }}" hint="Enter distance in km" autocapitalizationType="none" autocorrect="false" />
-        </StackLayout>
-        <Border />
-        
-        <StackLayout orientation="horizontal">  
-            <Label text="Number of bedrooms:"/>
-            <TextField text="{{ bedroomsCount }}" hint="Enter the number of bedrooms" autocapitalizationType="none" autocorrect="false" />
-        </StackLayout>
-        <Border />
-        
-        <StackLayout orientation="horizontal">  
-            <Label text="Number of beds:"/>
-            <TextField text="{{ bedsCount }}" hint="Enter the number of beds" autocapitalizationType="none" autocorrect="false" />
-        </StackLayout>
-        <Border />
-        
-        <StackLayout orientation="horizontal">
-            <Label text="Min price:"/>
-            <Slider value="{{ minPrice }}" />
-        </StackLayout>
-        
-        <StackLayout orientation="horizontal">
-            <Label text="Max price:"/>
-            <Slider value="{{ maxPrice }}" />
-        </StackLayout>
 
-        <Button text="Find" tap="findButtonTap" cssClass="primaryButton"/>
-      </StackLayout>
+            <Label text="Maximum distance:" textWrap="true" col="0" row="2"/>
+            <TextField text="{{ distance }}" hint="Enter distance in km" autocapitalizationType="none" autocorrect="false" col="1" row="2" />
+            
+            
+            <Label text="Number of bedrooms:" textWrap="true" col="0" row="3"/>
+            <TextField text="{{ bedroomsCount }}" hint="Enter the number of bedrooms" autocapitalizationType="none" autocorrect="false" col="1" row="3"/>   
+         
+             
+            <Label text="Number of beds:" textWrap="true" col="0" row="4"/>
+            <TextField text="{{ bedsCount }}" hint="Enter the number of beds" autocapitalizationType="none" autocorrect="false" col="1" row="4"/>
+         
+          
+            <Label text="Min price:" textWrap="true" col="0" row="5"/>
+            <Slider value="{{ minPrice }}" col="1" row="5"/>
+            
+            <Label text="Max price:" textWrap="true" col="0" row="6"/>
+            <Slider value="{{ maxPrice }}" col="1" row="6"/>
+         
+            <Button text="Find" tap="findButtonTap" cssClass="primaryButton" col="0" row="7" colSpan="2"/>
+        <ActivityIndicator busy="{{ isLoading }}" />
+      </GridLayout>
     </ScrollView>
-
-    <ActivityIndicator busy="{{ isLoading }}" />
-  </GridLayout>
 </Page>
