@@ -1,6 +1,6 @@
 var applicationSettingsModule = require("application-settings");
 var http = require("http");
-var constantsModule = require("../../common/constants");
+var constantsModule = require("../common/constants");
 
 var Users = (function (_super) {
     __extends(Users, _super);
