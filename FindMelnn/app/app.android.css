@@ -9,7 +9,7 @@ Label {
 }
 
 TextField, TextView {
-    margin: 0 16 0 16;
+    margin: 0 16;
 }
 
 ActivityIndicator {
