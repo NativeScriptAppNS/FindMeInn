@@ -6,12 +6,12 @@ var Users = (function (_super) {
     __extends(Users, _super);
     function Users() {
         _super.call(this);
-        // this.signin();
+        this.signin();
     }
     
     Object.defineProperty(Users.prototype, "isSignedIn", {
         get: function () {
-            return false;
+            return applicationSettingsModule.getString("username") ? true : false;
         },
         set: function (value) {
             if (this._isSignedIn != value) {
@@ -34,14 +34,13 @@ var Users = (function (_super) {
                         "username": username, 
                         "password": password 
                     })
-                })
-                
-                // .then(function (response) {
-                //     var result = response.content.toJSON();
-                //     console.log(JSON.stringify(result));
-                // }, function (e) {
-                //     console.log("Error occurred " + e);
-                // });
+                }).then(function (response) {
+                    var result = response.content.toJSON();
+                    
+                    if (result.error) {
+                        throw Error(result.error);
+                    }
+                });
             }
         },
         enumerable: true,
@@ -60,6 +59,15 @@ var Users = (function (_super) {
                     url: "https://api.parse.com/1/login?username=" + username + "&password=" + password,
                     method: "GET",
                     headers: constantsModule.constants.parsecomheaders
+                }).then(function (response) {
+                    var result = response.content.toJSON();
+                    
+                    if (result.error) {
+                        throw Error(result.error);
+                    }
+                    
+                    applicationSettingsModule.setString("username", username);
+                    applicationSettingsModule.setString("password", password);
                 });
             };
         },
