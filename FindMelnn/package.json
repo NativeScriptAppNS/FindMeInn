@@ -6,7 +6,6 @@
     }
   },
   "dependencies": {
-    "parse": "^1.7.1",
     "sample-tasks-app-options": "file:app_options",
     "tns-core-modules": "1.5.2"
   }
