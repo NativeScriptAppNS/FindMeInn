@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
 	"nativescript": {
 		"id": "org.nativescript.FindMelnn",
 		"tns-android": {
@@ -10,3 +11,16 @@
 		"tns-core-modules": "1.5.2"
 	}
 }
+=======
+  "nativescript": {
+    "id": "org.nativescript.FindMelnn",
+    "tns-android": {
+      "version": "1.5.1"
+    }
+  },
+  "dependencies": {
+    "sample-tasks-app-options": "file:app_options",
+    "tns-core-modules": "1.5.2"
+  }
+}
+>>>>>>> 923ba48b63b370937132bafe2db8ec56654caf4b

@@ -1,17 +1,16 @@
 var viewModelBaseModule = require("../../common/view-model-base");
 var navigationModule = require("../../common/navigation");
-var viewsModule = require("../../common/views");
-var timer = require("timer");
+var constantsModule = require("../../common/constants");
 
-var SigninViewModel = (function (_super) {
-    __extends(SigninViewModel, _super);
-    function SigninViewModel() {
+var SignupViewModel = (function (_super) {
+    __extends(SignupViewModel, _super);
+    function SignupViewModel() {
         _super.call(this);
         this._username = "";
         this._password = "";
     }
     
-    Object.defineProperty(SigninViewModel.prototype, "username", {
+    Object.defineProperty(SignupViewModel.prototype, "username", {
         get: function () {
             return this._username;
         },
@@ -25,7 +24,7 @@ var SigninViewModel = (function (_super) {
         configurable: true
     });
     
-    Object.defineProperty(SigninViewModel.prototype, "password", {
+    Object.defineProperty(SignupViewModel.prototype, "password", {
         get: function () {
             return this._password;
         },
@@ -39,37 +38,11 @@ var SigninViewModel = (function (_super) {
         configurable: true
     });
     
-    SigninViewModel.prototype.signin = function () {
-        if (!this.IsValidData()) {
-            return;
-        }
+    SignupViewModel.prototype.signup = function () {
         
-        if (!this.beginLoading()) {
-            return;
-        }
-        
-        var _context = this;
-        timer.setTimeout(function () {
-            _context.showInfo("You are fake signed in");
-            _context.password = "";
-            _context.username = "";
-            _context.endLoading();
-        }, 2000);
-
-        navigationModule.navigateTo({
-                moduleName: "views/search/search",
-                backstackVisible: true
-            });
     };
     
-    SigninViewModel.prototype.signup = function () {
-        navigationModule.navigateTo({
-            moduleName: viewsModule.views["signup"],
-            backstackVisible: true
-        });
-    };
-    
-    SigninViewModel.prototype.IsValidData = function () {
+    SignupViewModel.prototype.IsValidData = function () {
         if (!this.username || this.username === "") {
             this.showError("Please enter username.");
             return false;
@@ -83,8 +56,8 @@ var SigninViewModel = (function (_super) {
         return true;
     };
     
-    return SigninViewModel;
+    return SignupViewModel;
     
 })(viewModelBaseModule.ViewModelBase);
 
-exports.SigninViewModel = SigninViewModel;
+exports.SignupViewModel = SignupViewModel;

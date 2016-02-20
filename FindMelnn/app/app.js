@@ -1,4 +1,15 @@
 var application = require("application");
-application.mainModule = "./views/search/search";
+var usersServices = require("./services/users");
+var viewsModule = require("./common/views");
+
 application.cssFile = "./app.css";
+
+application.onLaunch = function(context) {
+    if (usersServices.users.isSignedIn) {
+        application.mainModule = viewsModule.views["search"];
+    } else {
+        application.mainModule = viewsModule.views["signin"];
+    }
+};
+
 application.start();
