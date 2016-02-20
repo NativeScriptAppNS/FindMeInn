@@ -17,15 +17,14 @@ TextField, TextView {
     margin: 10 10 10 10;
 }
 
-.favouritesButton{
-    margin-left: 150;
-    background-color: #f3f5f7;
+.appBarButton{
     font-size: 25;
 }
 
 .materialIcon {
    font-family: 'Material-Design-Iconic-Font';
    color: #57667c;
+    background-color: #f3f5f7;
 }
 
 ActivityIndicator {
