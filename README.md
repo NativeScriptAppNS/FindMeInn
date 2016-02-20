@@ -35,4 +35,5 @@ to filter them according to different criteria, it is the best app to find you t
 
 ### Animations and Gestures
 
-
+TODO: multiple languages
+TODO: change theme

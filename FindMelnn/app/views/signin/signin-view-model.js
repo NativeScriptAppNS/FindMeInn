@@ -56,7 +56,7 @@ var SigninViewModel = (function (_super) {
                     clearHistory: true
                 });
             }, function (e) {
-                _weakThis.showError(e.message);
+                _weakThis.showError("Can't singin!");
             }).then(function(){
                 _weakThis.endLoading();
             });

@@ -1,0 +1,11 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" >
+  <GridLayout>
+    <ScrollView>
+      <StackLayout>
+        <Button text="SignOut" tap="signuotButtonTap" cssClass="primaryButton"/>
+      </StackLayout>
+    </ScrollView>
+
+    <ActivityIndicator busy="{{ isLoading }}" />
+  </GridLayout>
+</Page>

@@ -121,13 +121,19 @@ var SearchViewModel = (function (_super) {
 
     SearchViewModel.prototype.goToFavourites = function() {
         navigationModule.navigateTo({
-                moduleName: "views/favourites/favourites",
-                backstackVisible: true
-            });
+            moduleName: "views/favourites/favourites",
+            backstackVisible: true
+        });
+    };
+    
+    SearchViewModel.prototype.goToSettings = function() {
+        navigationModule.navigateTo({
+            moduleName: "views/settings/settings",
+            backstackVisible: true
+        });
     };
     
     SearchViewModel.prototype.IsValidData = function () {
-        
         console.log(this._city);
         console.log(this._distance);
         console.log(this._bedroomsCount);
