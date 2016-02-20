@@ -9,7 +9,8 @@ function navigatingTo(args) {
 }
 
 function pageLoaded() {
-    // TODO fix this
+    //TODO: fix this, shows every time even when we back from result view
+    
     var username = applicationSettingsModule.getString("username");
     viewModel.showInfo("Hallo " + username + '!');
 }
@@ -18,8 +19,11 @@ function findButtonTap(args) {
     viewModel.find();
 }
 
+function settingsButtonTap() {
+	viewModel.goToSettings();
+}
+
 function favButtonTap() {
-	console.log('HERE');
 	viewModel.goToFavourites();
 }
 
@@ -27,3 +31,4 @@ exports.navigatingTo = navigatingTo;
 exports.findButtonTap = findButtonTap;
 exports.favButtonTap = favButtonTap;
 exports.pageLoaded = pageLoaded;
+exports.settingsButtonTap = settingsButtonTap;

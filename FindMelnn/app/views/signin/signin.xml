@@ -3,18 +3,15 @@
     <ScrollView>
       <StackLayout>
         <Image src="res://logo" cssClass="logo" stretch="none" />
-
         <TextField text="{{ username }}" cssClass="signinTextField" hint="Enter your username" autocapitalizationType="none" autocorrect="false" />
         <Border />
         <TextField text="{{ password }}" cssClass="signinTextField" secure="true" hint="Enter your password" />
         <Border />
         <Button text="SignIn" tap="signinButtonTap" cssClass="primaryButton"/>
-
         <Label text="New user?" cssClass="signinLabel"/>
         <Button text="SignUp" tap="signupButtonTap" cssClass="primaryButton"/>
       </StackLayout>
     </ScrollView>
-
     <ActivityIndicator busy="{{ isLoading }}" />
   </GridLayout>
 </Page>

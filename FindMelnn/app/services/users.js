@@ -1,4 +1,5 @@
 var applicationSettingsModule = require("application-settings");
+var timer = require("timer");
 var http = require("http");
 var constantsModule = require("../common/constants");
 
@@ -68,6 +69,24 @@ var Users = (function (_super) {
                     
                     applicationSettingsModule.setString("username", username);
                     applicationSettingsModule.setString("password", password);
+                });
+            };
+        },
+        enumerable: true,
+        configurable: true
+    });
+    
+    Object.defineProperty(Users.prototype, "signout", {
+        get: function () {
+            return function () {
+                applicationSettingsModule.remove("username");
+                applicationSettingsModule.remove("password");
+                
+                return new Promise(
+                    function(resolve, reject) {
+                        timer.setTimeout(function () {
+                            resolve();
+                        }, 2000);
                 });
             };
         },

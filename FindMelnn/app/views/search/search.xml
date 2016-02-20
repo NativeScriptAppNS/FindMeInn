@@ -14,7 +14,7 @@
         </ActionBar>
     </Page.actionBar>
     <ScrollView>
-      <GridLayout columns="*, 3*" rows="2*,*,*,*,*,*,*,*">      
+        <GridLayout columns="*, 3*" rows="2*,*,*,*,*,*,*,*">      
             <Image src="res://logo" cssClass="logo" stretch="none" col="0" row="0" colSpan="2" />
 
             <Label text="City:" textWrap="true" col="0" row="1"/>
@@ -40,7 +40,7 @@
             <Slider value="{{ maxPrice }}" col="1" row="6"/>
          
             <Button text="Find" tap="findButtonTap" cssClass="primaryButton" col="0" row="7" colSpan="2"/>
-        <ActivityIndicator busy="{{ isLoading }}" />
-      </GridLayout>
+            <ActivityIndicator busy="{{ isLoading }}" />
+        </GridLayout>
     </ScrollView>
 </Page>
