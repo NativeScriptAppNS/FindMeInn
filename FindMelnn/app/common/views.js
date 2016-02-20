@@ -3,7 +3,9 @@ var views = {
     "search": "views/search/search",
     "signin": "views/signin/signin",
     "signup": "views/signup/signup",
-    "details": "views/details/details"
+    "details": "views/details/details",
+    "reviews": "views/reviews/reviews",
+    "amenities":"views/amenities/amenities"
 };
 
 exports.views = views;

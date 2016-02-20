@@ -7,4 +7,14 @@ function navigatingTo(args) {
     page.bindingContext = viewModel;
 }
 
+function reviewsButtonTap(args) {
+    viewModel.goToReviews();
+}
+
+function amenitiesButtonTap(args) {
+	viewModel.goToAmenities();
+}
+
 exports.navigatingTo = navigatingTo;
+exports.reviewsButtonTap = reviewsButtonTap;
+exports.amenitiesButtonTap = amenitiesButtonTap;

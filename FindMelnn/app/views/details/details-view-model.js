@@ -1,5 +1,6 @@
 var viewModelBaseModule = require("../../common/view-model-base");
 var navigationModule = require("../../common/navigation");
+var viewsModule = require("../../common/views");
 var timer = require("timer");
 
 var DetailsViewModel = (function (_super) {
@@ -367,6 +368,24 @@ var DetailsViewModel = (function (_super) {
         enumerable: true,
         configurable: true
     });
+
+    DetailsViewModel.prototype.goToReviews = function() {
+    	
+	navigationModule.navigateTo({
+		moduleName: viewsModule.views.reviews,
+		backstackVisible: true,
+		context: this.hotel.reviews.entries
+	});
+   };
+
+   DetailsViewModel.prototype.goToAmenities = function() {
+    	
+	navigationModule.navigateTo({
+		moduleName: viewsModule.views.amenities,
+		backstackVisible: true,
+		context: this.hotel.amenities
+	});
+   };
 
 return DetailsViewModel;
 

@@ -1,26 +1,41 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" >
+	    <Page.actionBar>
+        <ActionBar title="Title">
+          <ActionBar.titleView>
+            <GridLayout columns="70*, 15*, 15*">
+                <StackLayout orientation="horizontal" col="0" row="0">
+                    <Image src="res://icon" width="50px"/>
+                    <Label text="FindMeInn" />
+                </StackLayout>
+                <Button text="&#xf1c6;" cssClass="appBarButton materialIcon" tap="settingsButtonTap" col="1" row="0" />
+                <Button text="&#xf15f;" cssClass="appBarButton materialIcon" tap="favButtonTap"  col="2" row="0" />
+            </GridLayout>
+          </ActionBar.titleView>
+        </ActionBar>
+    </Page.actionBar>
 	<ScrollView>
-		<GridLayout columns="*,*" rows="*,*,*,*,*,*,*,*,*,*,*,*,*,*">
-			<Label text="{{hotel.attr.heading}}" row="0" col="0" colSpan="2"/> 
-			<Image src="https://a1.muscache.com/pictures/8630147/small.jpg" width="30" row="1" col="0"/> 
+		<GridLayout columns="*,*" rows="2*,4*,2*,2*,0.5*,3*,2*,2*,2*,2*,2*,2*,2*,2*,*">
+			<Label text="{{hotel.attr.heading}}" cssClass="header" row="0" col="0" colSpan="2"/> 
+			<Image src="{{hotel.photos[0].medium}}" width="200" row="1" col="0" rowSpan="3"/> 
 			<Label text="{{hotel.attr.propType.text}}" row="1" col="1"/>
 			<Label text="{{hotel.attr.roomType.text}}" row="2" col="1" />
-			<Label text="{{hotel.location.all}}" row="3" col="0" colSpan="2"/>
-			<Label text="Go to gallery" row="4" col="0" colSpan"2"/>
-			<Label text="{{hotel.attr.description}}" textWrap="true" height="50"  row="5" col="0" colSpan="2"/>
-			<Label text="{{hotel.attr.bathrooms}}" row="6" col="0"/>
-			<Label text="{{hotel.attr.bedrooms}}" row="6" col="1"/>
-			<Label text="{{hotel.attr.beds}}" row="7" col="0"/>
-			<Label text="{{hotel.attr.occupancy}}" row="7" col="1"/>
-			<Button text="Amenities" row="8" col="0" colSpan="2"/>
-			<Label text="Price:" row="9" col="0" colSpan="2"/>
-			<Label text="{{hotel.price.monthly}}" row="10" col="0"/>
-			<Label text="{{hotel.price.nightly}}" row="10" col="1"/>
-			<Label text="{{hotel.price.weekly}}" row="11" col="0"/>
-			<Label text="{{hotel.price.weekend}}" row="11" col="1"/>
-			<Button text="Reviews" row="12" col="0" colSpan="2"/>
-			<Label text="{{hotel.provider.full}}" row="13" col="0"/>
-			<Label text="{{hotel.provider.url}}" row="13" col="1"/>
+			<Label text="{{hotel.location.all}}" textWrap="true" row="3" col="1" />
+			<Button text="&#xf397; Go to gallery"  cssClass="detailsSmallButton materialIcon" row="4" col="0" />
+			<Button text="&#xf1ab; Show on map" cssClass="detailsSmallButton materialIcon" row="4" col="1" />
+			<Label cssClass="description" text="{{hotel.attr.description}}" textWrap="true" height="60"  row="5" col="0" colSpan="2"/>
+			<Label text="{{'Bathrooms:  '+hotel.attr.bathrooms}}" row="6" col="0"/>
+			<Label text="{{'Bedrooms:  '+hotel.attr.bedrooms}}" row="6" col="1"/>
+			<Label text="{{'Beds: '+hotel.attr.beds}}" row="7" col="0"/>
+			<Label text="{{'Occupancy:  '+hotel.attr.occupancy}}" row="7" col="1"/>
+			<Button text="Amenities" cssClass="detailsBigButton" tap="amenitiesButtonTap" row="8" col="0" colSpan="2"/>
+			<Label text="Price:" cssClass="bigLabel" row="9" col="0" colSpan="2"/>
+			<Label text="{{'Monthly:  $'+hotel.price.monthly}}" row="10" col="0"/>
+			<Label text="{{'Nightly:  $'+hotel.price.nightly}}" row="10" col="1"/>
+			<Label text="{{'Weekly:  $'+hotel.price.weekly}}" row="11" col="0"/>
+			<Label text="{{'Weekend:  $'+hotel.price.weekend}}" row="11" col="1"/>
+			<Button text="Reviews" cssClass="detailsBigButton" tap="reviewsButtonTap" row="12" col="0" colSpan="2"/>
+			<Label text="{{hotel.provider.full}}" cssClass="bigLabel" row="13" col="0" colSpan="2"/>
+			<Label text="{{hotel.provider.url}}" row="14" col="0" colSpan="2"/>
 		</GridLayout>
 	</ScrollView>
 </Page>
