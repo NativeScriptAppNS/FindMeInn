@@ -9,9 +9,9 @@ application.cssFile = "./app.css";
 
 application.onLaunch = function(context) {
     if (usersServices.users.isSignedIn) {
-        application.mainModule = viewsModule.views["search"];
+        application.mainModule = viewsModule.views["details"];
     } else {
-        application.mainModule = viewsModule.views["signin"];
+        application.mainModule = viewsModule.views["details"];
     }
 };
 

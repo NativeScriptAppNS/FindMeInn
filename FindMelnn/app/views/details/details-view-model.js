@@ -1,5 +1,5 @@
 var viewModelBaseModule = require("../../common/view-model-base");
-var navigationModule = require("../../utils/navigation");
+var navigationModule = require("../../common/navigation");
 var timer = require("timer");
 
 var DetailsViewModel = (function (_super) {
@@ -354,8 +354,22 @@ var DetailsViewModel = (function (_super) {
 	    };
     }
 
+    Object.defineProperty(DetailsViewModel.prototype, "hotel", {
+        get: function () {
+            return this._hotel;
+        },
+        set: function (value) {
+            if (this._hotel !== value) {
+                this._hotel = value;
+                this.notifyPropertyChange("hotel", value);
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
 
-    
+return DetailsViewModel;
+
 })(viewModelBaseModule.ViewModelBase);
 
 exports.DetailsViewModel = DetailsViewModel;
