@@ -2,17 +2,19 @@ var view = require("ui/core/view");
 var timer = require("timer");
 var viewModelBaseModule = require("../../common/view-model-base");
 var navigationModule = require("../../common/navigation");
+var mapsServices = require("../../services/maps");
 
 var SearchViewModel = (function (_super) {
     __extends(SearchViewModel, _super);
     function SearchViewModel() {
         _super.call(this);
         this._city = "";
-        this._distance = "";
+        this._distance = 20;
         this._bedroomsCount = 1;
         this._bedsCount = 1;
         this._minPrice = 20;
         this._maxPrice = 100;
+        this._cityCords = {};
     }
     
     Object.defineProperty(SearchViewModel.prototype, "city", {
@@ -139,6 +141,10 @@ var SearchViewModel = (function (_super) {
     };
     
     SearchViewModel.prototype.IsValidData = function () {
+        if (this._city == "") {
+            this.showError("Please enter a city.");
+            return false;
+        }
         if (isNaN(this._distance) || this._distance <= 0) {
             this.showError("Distance must be a number greater than zero.");
             return false;
@@ -149,6 +155,20 @@ var SearchViewModel = (function (_super) {
         }
         if (isNaN(this._bedsCount) || this._bedsCount <= 0) {
             this.showError("Beds count must be a number greater than zero.");
+            return false;
+        }
+        
+        var error = null;
+        var _weakSelf = this;
+        mapsServices.maps.getCordsOfCity(this._city).then(
+            function (cords) {
+                _weakSelf._cityCords = cords;
+            }, function (err) {
+                error = err.message;
+            });
+            
+        if (error) {
+            this.showError(error);
             return false;
         }
         
