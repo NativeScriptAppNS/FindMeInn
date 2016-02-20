@@ -1,6 +1,9 @@
 var application = require("application");
 var usersServices = require("./services/users");
 var viewsModule = require("./common/views");
+// var dbModule = require("./common/dbContext");
+
+// dbModule.dbInit();
 
 application.cssFile = "./app.css";
 

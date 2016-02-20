@@ -1,7 +1,7 @@
 var viewModelBaseModule = require("../../common/view-model-base");
 var navigationModule = require("../../common/navigation");
 var viewsModule = require("../../common/views");
-var timer = require("timer");
+var usersModule = require("../../services/users");
 
 var SigninViewModel = (function (_super) {
     __extends(SigninViewModel, _super);
@@ -48,17 +48,22 @@ var SigninViewModel = (function (_super) {
             return;
         }
         
-        var _context = this;
-        timer.setTimeout(function () {
-            _context.showInfo("You are fake signed in");
-            _context.password = "";
-            _context.username = "";
-            _context.endLoading();
-        }, 2000);
-
-        navigationModule.navigateTo({
-                moduleName: "views/search/search",
-                backstackVisible: true
+        console.log(usersModule.users.signin);
+            
+        usersModule.users.signin(this.username, this.password).then(
+            function (response) {
+                var result = response.content.toJSON();
+                console.log(JSON.stringify(result));
+                navigationModule.navigateTo({
+                    moduleName: "views/search/search",
+                    backstackVisible: true
+                });
+                this.showInfo("You are fake signed in");
+            }, function (e) {
+                console.log("Error occurred " + e);
+            })
+            .then(function(){
+                this.endLoading();
             });
     };
     

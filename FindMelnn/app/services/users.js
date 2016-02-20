@@ -6,12 +6,12 @@ var Users = (function (_super) {
     __extends(Users, _super);
     function Users() {
         _super.call(this);
-        this.signin();
+        // this.signin();
     }
     
     Object.defineProperty(Users.prototype, "isSignedIn", {
         get: function () {
-            return this._isSignedIn;
+            return false;
         },
         set: function (value) {
             if (this._isSignedIn != value) {
@@ -23,40 +23,49 @@ var Users = (function (_super) {
         configurable: true
     });
     
-    Users.prototype.signup = function (username, password) {
-        http.request({
-            url: "https://api.parse.com/1/users",
-            method: "POST",
-            headers: constantsModule.constants.parsecomheaders,
-            content: JSON.stringify({ 
-                "username": username, 
-                "password": password 
-            })
-        }).then(function (response) {
-            var result = response.content.toJSON();
-            console.log(JSON.stringify(result));
-        }, function (e) {
-            console.log("Error occurred " + e);
-        });
-    };
+    Object.defineProperty(Users.prototype, "signup", {
+        get: function () {
+            return function (username, password) {
+                return http.request({
+                    url: "https://api.parse.com/1/users",
+                    method: "POST",
+                    headers: constantsModule.constants.parsecomheaders,
+                    content: JSON.stringify({ 
+                        "username": username, 
+                        "password": password 
+                    })
+                })
+                
+                // .then(function (response) {
+                //     var result = response.content.toJSON();
+                //     console.log(JSON.stringify(result));
+                // }, function (e) {
+                //     console.log("Error occurred " + e);
+                // });
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
     
-    Users.prototype.signin = function (username, password) {
-        if (typeof username === 'undefined' || typeof password === 'undefined') {
-            username = applicationSettingsModule.getString("username");
-            password = applicationSettingsModule.getString("password");
-        }
-        
-        http.request({
-            url: "https://api.parse.com/1/login?username=" + username + "&password=" + password,
-            method: "GET",
-            headers: constantsModule.constants.parsecomheaders
-        }).then(function (response) {
-            var result = response.content.toJSON();
-            console.log(JSON.stringify(result));
-        }, function (e) {
-            console.log("Error occurred " + e);
-        });
-    };
+    Object.defineProperty(Users.prototype, "signin", {
+        get: function () {
+            return function (username, password) {
+                if (typeof username === 'undefined' || typeof password === 'undefined') {
+                    username = applicationSettingsModule.getString("username");
+                    password = applicationSettingsModule.getString("password");
+                }
+                
+                return http.request({
+                    url: "https://api.parse.com/1/login?username=" + username + "&password=" + password,
+                    method: "GET",
+                    headers: constantsModule.constants.parsecomheaders
+                });
+            };
+        },
+        enumerable: true,
+        configurable: true
+    });
     
     return Users;
 })(Object);
