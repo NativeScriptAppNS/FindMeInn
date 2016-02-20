@@ -1,0 +1,26 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" >
+	<ScrollView>
+		<GridLayout columns="*,*" rows="*,*,*,*,*,*,*,*,*,*,*,*,*,*">
+			<Label text="{{hotel.attr.heading}}" row="0" col="0" colSpan="2"/> 
+			<Image src="https://a1.muscache.com/pictures/8630147/small.jpg" width="30" row="1" col="0"/> 
+			<Label text="{{hotel.attr.propType.text}}" row="1" col="1"/>
+			<Label text="{{hotel.attr.roomType.text}}" row="2" col="1" />
+			<Label text="{{hotel.location.all}}" row="3" col="0" colSpan="2"/>
+			<Label text="Go to gallery" row="4" col="0" colSpan"2"/>
+			<Label text="{{hotel.attr.description}}" textWrap="true" height="50"  row="5" col="0" colSpan="2"/>
+			<Label text="{{hotel.attr.bathrooms}}" row="6" col="0"/>
+			<Label text="{{hotel.attr.bedrooms}}" row="6" col="1"/>
+			<Label text="{{hotel.attr.beds}}" row="7" col="0"/>
+			<Label text="{{hotel.attr.occupancy}}" row="7" col="1"/>
+			<Button text="Amenities" row="8" col="0" colSpan="2"/>
+			<Label text="Price:" row="9" col="0" colSpan="2"/>
+			<Label text="{{hotel.price.monthly}}" row="10" col="0"/>
+			<Label text="{{hotel.price.nightly}}" row="10" col="1"/>
+			<Label text="{{hotel.price.weekly}}" row="11" col="0"/>
+			<Label text="{{hotel.price.weekend}}" row="11" col="1"/>
+			<Button text="Reviews" row="12" col="0" colSpan="2"/>
+			<Label text="{{hotel.provider.full}}" row="13" col="0"/>
+			<Label text="{{hotel.provider.url}}" row="13" col="1"/>
+		</GridLayout>
+	</ScrollView>
+</Page>
