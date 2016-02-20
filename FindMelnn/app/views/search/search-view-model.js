@@ -1,6 +1,7 @@
+var view = require("ui/core/view");
+var timer = require("timer");
 var viewModelBaseModule = require("../../common/view-model-base");
 var navigationModule = require("../../common/navigation");
-var timer = require("timer");
 
 var SearchViewModel = (function (_super) {
     __extends(SearchViewModel, _super);
@@ -75,9 +76,11 @@ var SearchViewModel = (function (_super) {
             return this._minPrice;
         },
         set: function (value) {
-            if (this._minPrice !== value) {
+            if (this._minPrice !== value && value <= this._maxPrice) {
                 this._minPrice = value;
                 this.notifyPropertyChange("minPrice", value);
+            } else {
+                this.maxSlider.value = value;
             }
         },
         enumerable: true,
@@ -89,9 +92,11 @@ var SearchViewModel = (function (_super) {
             return this._maxPrice;
         },
         set: function (value) {
-            if (this._maxPrice !== value) {
+            if (this._maxPrice !== value && value >= this._minPrice) {
                 this._maxPrice = value;
                 this.notifyPropertyChange("maxPrice", value);
+            } else {
+                this.minSlider.value = value;
             }
         },
         enumerable: true,
@@ -134,12 +139,19 @@ var SearchViewModel = (function (_super) {
     };
     
     SearchViewModel.prototype.IsValidData = function () {
-        console.log(this._city);
-        console.log(this._distance);
-        console.log(this._bedroomsCount);
-        console.log(this._bedsCount);
-        console.log(this._minPrice);
-        console.log(this._maxPrice);
+        if (isNaN(this._distance) || this._distance <= 0) {
+            this.showError("Distance must be a number greater than zero.");
+            return false;
+        }
+        if (isNaN(this._bedroomsCount) || this._bedroomsCount <= 0) {
+            this.showError("Bedrooms count must be a number greater than zero.");
+            return false;
+        }
+        if (isNaN(this._bedsCount) || this._bedsCount <= 0) {
+            this.showError("Beds count must be a number greater than zero.");
+            return false;
+        }
+        
         return true;
     };
     
