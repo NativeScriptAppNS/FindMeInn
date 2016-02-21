@@ -13,10 +13,10 @@
           </ActionBar.titleView>
         </ActionBar>
     </Page.actionBar>
-
+  
     <ListView items="{{amenities}}">
         <ListView.itemTemplate> 
-          <Label text="{{text}}"/>
+          <Label text="{{'&#xf26b;   '+text}}" cssClass="materialIcon amenity"/>
         </ListView.itemTemplate>
      </ListView>
 </Page>

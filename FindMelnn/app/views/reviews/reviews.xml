@@ -17,9 +17,9 @@
     <ListView items="{{ reviews }}">
         <ListView.itemTemplate>
             <GridLayout columns="*,*" rows="*,*">
-               <TextView text="{{ text || 'Downloading...' }}" textWrap="true" row="0" col="0" colSpan="2"/>
-               <Label text="{{name}}" row="1" col="0" />
-               <Label text="2013-05-21" row="1" col="1" />
+               <Label text="{{text || 'Downloading...' }}" textWrap="true" cssClass="review" row="0" col="0" colSpan="2"/>
+               <Label text="{{name}}" cssClass="reviewLabel" row="1" col="0" />
+               <Label text="2013-05-21" cssClass="reviewLabel" row="1" col="1" />
             </GridLayout>
         </ListView.itemTemplate>
      </ListView>

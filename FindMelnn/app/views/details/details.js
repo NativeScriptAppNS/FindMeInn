@@ -15,6 +15,11 @@ function amenitiesButtonTap(args) {
 	viewModel.goToAmenities();
 }
 
+function galleryButtonTap(args) {
+	viewModel.goToGallery();
+}
+
 exports.navigatingTo = navigatingTo;
 exports.reviewsButtonTap = reviewsButtonTap;
 exports.amenitiesButtonTap = amenitiesButtonTap;
+exports.galleryButtonTap = galleryButtonTap;

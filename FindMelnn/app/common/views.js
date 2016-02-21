@@ -5,7 +5,8 @@ var views = {
     "signup": "views/signup/signup",
     "details": "views/details/details",
     "reviews": "views/reviews/reviews",
-    "amenities":"views/amenities/amenities"
+    "amenities":"views/amenities/amenities",
+    "gallery": "views/gallery/gallery"
 };
 
 exports.views = views;

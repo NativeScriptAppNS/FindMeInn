@@ -387,6 +387,16 @@ var DetailsViewModel = (function (_super) {
 	});
    };
 
+   DetailsViewModel.prototype.goToGallery = function() {
+    	
+	navigationModule.navigateTo({
+		moduleName: viewsModule.views.gallery,
+		backstackVisible: true,
+		context: this.hotel.photos
+	});
+   };
+
+
 return DetailsViewModel;
 
 })(viewModelBaseModule.ViewModelBase);

@@ -88,5 +88,24 @@ ActivityIndicator {
 }
 
 .description{
-    text-overflow: ellipse;
+    text-overflow: ellipsis;
+}
+
+/*amenities page*/
+
+.amenity{
+    padding: 10 10 10 10;
+    font-size: 15;
+}
+
+/*reviews page*/
+
+.review {
+    font-style: italic;
+    margin:10 10 0 15;
+}
+
+.reviewLabel {
+    text-align: right;
+    margin:0 20 0 15;
 }
