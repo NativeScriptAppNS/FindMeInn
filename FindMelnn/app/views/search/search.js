@@ -1,6 +1,7 @@
-var searchViewModelModule = require("./search-view-model");
 var applicationSettingsModule = require("application-settings");
 var view = require("ui/core/view");
+var searchViewModelModule = require("./search-view-model");
+var navigationModule = require("../../common/navigation");
 
 var viewModel;
 function navigatingTo(args) {
@@ -11,11 +12,11 @@ function navigatingTo(args) {
     page.bindingContext = viewModel;
 }
 
-function pageLoaded() {
-    //TODO: fix this, shows every time even when we back from result view
-    
-    var username = applicationSettingsModule.getString("username");
-    viewModel.showInfo("Hallo " + username + '!');
+function navigatedTo(args) {
+    if (!args.isBackNavigation) {
+        var username = applicationSettingsModule.getString("username");
+        viewModel.showInfo("Hallo " + username + '!');
+    }
 }
 
 function findButtonTap(args) {
@@ -23,7 +24,7 @@ function findButtonTap(args) {
 }
 
 function settingsButtonTap() {
-	viewModel.goToSettings();
+    navigationModule.goToSettings();
 }
 
 function favButtonTap() {
@@ -37,6 +38,6 @@ function getMyLocationTap() {
 exports.navigatingTo = navigatingTo;
 exports.findButtonTap = findButtonTap;
 exports.favButtonTap = favButtonTap;
-exports.pageLoaded = pageLoaded;
+exports.navigatedTo = navigatedTo;
 exports.getMyLocationTap = getMyLocationTap;
 exports.settingsButtonTap = settingsButtonTap;

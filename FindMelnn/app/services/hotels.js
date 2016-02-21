@@ -10,7 +10,7 @@ var Hotels = (function (_super) {
     Hotels.prototype.addHotel = function(hotelObj) {
         return global.db.execSQL("insert into Hotels values (?, ?)", [hotelObj.id, JSON.stringify(hotelObj)]).then(
             function(id) {
-                return "Inserted: " + id;
+                return "Inserted!";
             }, function(err) {
                 throw Error(err);
             });
