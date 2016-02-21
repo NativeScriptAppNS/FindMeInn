@@ -57,6 +57,8 @@ var SignupViewModel = (function (_super) {
                             moduleName: viewsModule.views.search,
                             clearHistory: true
                         });
+                    }, function () {
+                        throw Error();
                     });
             }, function (e) {
                 _weakThis.showError("Can't signup!");
