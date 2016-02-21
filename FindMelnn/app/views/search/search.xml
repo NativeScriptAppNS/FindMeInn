@@ -18,7 +18,10 @@
             <Image src="res://logo" cssClass="logo" stretch="none" col="0" row="0" colSpan="2" />
 
             <Label text="City:" textWrap="true" col="0" row="1"/>
-            <TextField text="{{ city }}" hint="Enter a city" tocapitalizationType="none" autocorrect="false" col="1" row="1"/>
+            <GridLayout col="1" row="1" columns="85*, 15*">
+                <TextField text="{{ city }}" hint="Enter a city" tocapitalizationType="none" autocorrect="true" col="0" />
+                <Button text="&#xf1ab;" cssClass="appBarButton materialIcon" col="1" tab="getMyLocationTap"/>
+            </GridLayout>
 
             <Label text="Maximum distance:" textWrap="true" col="0" row="2"/>
             <TextField text="{{ distance }}" hint="Enter distance in km" autocapitalizationType="none" autocorrect="false" col="1" row="2" />

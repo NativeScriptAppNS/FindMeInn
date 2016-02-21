@@ -4,6 +4,7 @@ var viewModel;
 function navigatingTo(args) {
     var page = args.object;
     viewModel = new detailsViewModelModule.DetailsViewModel();
+    viewModel.hotel = args.context;
     page.bindingContext = viewModel;
 }
 

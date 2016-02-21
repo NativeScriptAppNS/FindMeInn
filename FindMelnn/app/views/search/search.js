@@ -30,8 +30,13 @@ function favButtonTap() {
 	viewModel.goToFavourites();
 }
 
+function getMyLocationTap() {
+    viewModel.getMyLocationTap();
+}
+
 exports.navigatingTo = navigatingTo;
 exports.findButtonTap = findButtonTap;
 exports.favButtonTap = favButtonTap;
 exports.pageLoaded = pageLoaded;
+exports.getMyLocationTap = getMyLocationTap;
 exports.settingsButtonTap = settingsButtonTap;
