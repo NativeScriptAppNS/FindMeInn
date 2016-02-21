@@ -3,6 +3,8 @@ var usersServices = require("./services/users");
 var viewsModule = require("./common/views");
  var dbModule = require("./common/dbContext");
  var hotelsServices = require("./services/hotels");
+// var dbModule = require("./common/dbContext");
+var applicationSettingsModule = require("application-settings");
 
  dbModule.dbInit();
 // hotelsServices.hotels.addHotel();
@@ -15,9 +17,9 @@ application.cssFile = "./app.css";
 
 application.onLaunch = function(context) {
     if (usersServices.users.isSignedIn) {
-        application.mainModule = viewsModule.views["search"];
+        application.mainModule = viewsModule.views.search;
     } else {
-        application.mainModule = viewsModule.views["signin"];
+        application.mainModule = viewsModule.views.signin;
     }
 };
 

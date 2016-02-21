@@ -30,6 +30,7 @@ var ViewModelBase = (function (_super) {
             if (platformModule.device.os === platformModule.platformNames.android) {
                 return enumsModule.Visibility.visible;
             }
+            
             return enumsModule.Visibility.collapsed;
         },
         enumerable: true,
@@ -41,6 +42,7 @@ var ViewModelBase = (function (_super) {
             if (platformModule.device.os === platformModule.platformNames.ios) {
                 return enumsModule.Visibility.visible;
             }
+            
             return enumsModule.Visibility.collapsed;
         },
         enumerable: true,

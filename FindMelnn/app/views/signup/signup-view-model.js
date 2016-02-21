@@ -1,6 +1,7 @@
 var viewModelBaseModule = require("../../common/view-model-base");
 var navigationModule = require("../../common/navigation");
-var constantsModule = require("../../common/constants");
+var viewsModule = require("../../common/views");
+var usersModule = require("../../services/users");
 
 var SignupViewModel = (function (_super) {
     __extends(SignupViewModel, _super);
@@ -39,7 +40,31 @@ var SignupViewModel = (function (_super) {
     });
     
     SignupViewModel.prototype.signup = function () {
+        if (!this.IsValidData()) {
+            return;
+        }
         
+        if (!this.beginLoading()) {
+            return;
+        }
+        
+        var _weakThis = this;
+        usersModule.users.signup(this.username, this.password).then(
+            function () {
+                usersModule.users.signin(_weakThis.username, _weakThis.password).then(
+                    function () {
+                        navigationModule.navigateTo({
+                            moduleName: viewsModule.views.search,
+                            clearHistory: true
+                        });
+                    }, function () {
+                        throw Error();
+                    });
+            }, function (e) {
+                _weakThis.showError("Can't signup!");
+            }).then(function () {
+                _weakThis.endLoading();
+            });
     };
     
     SignupViewModel.prototype.IsValidData = function () {

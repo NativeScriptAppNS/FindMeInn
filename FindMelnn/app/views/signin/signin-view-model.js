@@ -47,29 +47,24 @@ var SigninViewModel = (function (_super) {
         if (!this.beginLoading()) {
             return;
         }
-        
-        console.log(usersModule.users.signin);
             
+        var _weakThis = this;
         usersModule.users.signin(this.username, this.password).then(
-            function (response) {
-                var result = response.content.toJSON();
-                console.log(JSON.stringify(result));
+            function () {
                 navigationModule.navigateTo({
-                    moduleName: "views/search/search",
-                    backstackVisible: true
+                    moduleName: viewsModule.views.search,
+                    clearHistory: true
                 });
-                this.showInfo("You are fake signed in");
             }, function (e) {
-                console.log("Error occurred " + e);
-            })
-            .then(function(){
-                this.endLoading();
+                _weakThis.showError("Can't singin!");
+            }).then(function(){
+                _weakThis.endLoading();
             });
     };
     
     SigninViewModel.prototype.signup = function () {
         navigationModule.navigateTo({
-            moduleName: viewsModule.views["signup"],
+            moduleName: viewsModule.views.signup,
             backstackVisible: true
         });
     };
