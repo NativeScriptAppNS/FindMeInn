@@ -1,3 +1,13 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" >
-	
+	<GridLayout columns="*, 0*" id="myGrid">
+		<ListView items="{{ photos }}" itemTap="onImageLongPressed" col="0" row="0">
+			<ListView.itemTemplate>
+				<GridLayout columns="2*,*" rows="*">
+					<Image src="{{large}}"  col="0" row="0"/>
+					<Label text="{{caption}}" textWrap="true" col="1" row="0"/>
+				</GridLayout>
+			</ListView.itemTemplate>
+		</ListView>
+		<Image src="{{pressedImageSrc}}" col="1" row="0"/>
+	</GridLayout>
 </Page>

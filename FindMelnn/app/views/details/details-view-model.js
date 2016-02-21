@@ -50,6 +50,9 @@ var DetailsViewModel = (function (_super) {
 	});
    };
 
+	DetailsViewModel.prototype.addToFavourites = function() {
+	    	
+	   };
 
 return DetailsViewModel;
 

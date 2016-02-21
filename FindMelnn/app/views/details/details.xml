@@ -14,7 +14,7 @@
         </ActionBar>
     </Page.actionBar>
 	<ScrollView>
-		<GridLayout columns="*,*" rows="2*,4*,2*,2*,0.5*,3*,2*,2*,2*,2*,2*,2*,2*,2*,*">
+		<GridLayout columns="*,*" rows="2*,4*,2*,2*,0.5*,3*,2*,2*,2*,2*,2*,2*,2*,2*,*,2*">
 			<Label text="{{hotel.attr.heading}}" cssClass="header" row="0" col="0" colSpan="2"/> 
 			<Image src="{{hotel.photos[0].medium}}" width="200" row="1" col="0" rowSpan="3"/> 
 			<Label text="{{hotel.attr.propType.text}}" row="1" col="1"/>
@@ -36,6 +36,7 @@
 			<Button text="Reviews" cssClass="detailsBigButton" tap="reviewsButtonTap" row="12" col="0" colSpan="2"/>
 			<Label text="{{hotel.provider.full}}" cssClass="bigLabel" row="13" col="0" colSpan="2"/>
 			<Label text="{{hotel.provider.url}}" row="14" col="0" colSpan="2"/>
+			<Button text="ADD TO FAVOURITES" cssClass="primaryButton" tap="addToFavouritesButtonTap" col="0" colSpan="2" row="15"/>
 		</GridLayout>
 	</ScrollView>
 </Page>

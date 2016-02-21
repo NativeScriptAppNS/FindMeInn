@@ -20,6 +20,10 @@ function galleryButtonTap(args) {
 	viewModel.goToGallery();
 }
 
+function addToFavouritesButtonTap(args){
+	viewModel.addToFavourites();
+}
+
 exports.navigatingTo = navigatingTo;
 exports.reviewsButtonTap = reviewsButtonTap;
 exports.amenitiesButtonTap = amenitiesButtonTap;
