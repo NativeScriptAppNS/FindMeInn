@@ -5,7 +5,6 @@ var navigationModule = require("../../common/navigation");
 var viewsModule = require("../../common/views");
 var hotelsServices = require("../../services/hotels");
 var mapsServices = require("../../services/maps");
-var geolocation = require("nativescript-geolocation");
 
 var SearchViewModel = (function (_super) {
     __extends(SearchViewModel, _super);
@@ -154,9 +153,11 @@ var SearchViewModel = (function (_super) {
     };
 
     SearchViewModel.prototype.goToFavourites = function() {
+        var hotels = hotelsServices.hotels.getAll()
         navigationModule.navigateTo({
-            moduleName: viewsModule.views.favorites,
-            backstackVisible: true
+            moduleName: viewsModule.views.details,
+            backstackVisible: true,
+            context: []
         });
     };
     
@@ -189,13 +190,13 @@ var SearchViewModel = (function (_super) {
     };
     
     SearchViewModel.prototype.getMyLocationTap = function () {
-        geolocation.getCurrentLocation({timeout: 20000}).then(
-            function(loc) {
-                if (loc) {
-                    console.log("Current location is: " + loc);
-                }
-            }, function(e){
-                console.log("Error: " + e.message);
+        var _weakThis = this;
+        mapsServices.maps.getMyCity().then(
+            function (mycityName) {
+                _weakThis.city = mycityName; 
+            },
+            function (e) {
+                _weakThis.showError(e.message);
             });
     };
     

@@ -27,4 +27,5 @@ function addToFavouritesButtonTap(args){
 exports.navigatingTo = navigatingTo;
 exports.reviewsButtonTap = reviewsButtonTap;
 exports.amenitiesButtonTap = amenitiesButtonTap;
+exports.addToFavouritesButtonTap = addToFavouritesButtonTap;
 exports.galleryButtonTap = galleryButtonTap;
