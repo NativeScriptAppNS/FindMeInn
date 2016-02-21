@@ -1,13 +1,17 @@
+var view = require("ui/core/view");
+var timer = require("timer");
 var viewModelBaseModule = require("../../common/view-model-base");
 var navigationModule = require("../../common/navigation");
-var timer = require("timer");
+var viewsModule = require("../../common/views");
+var hotelsServices = require("../../services/hotels");
+var mapsServices = require("../../services/maps");
 
 var SearchViewModel = (function (_super) {
     __extends(SearchViewModel, _super);
     function SearchViewModel() {
         _super.call(this);
         this._city = "";
-        this._distance = "";
+        this._distance = 20;
         this._bedroomsCount = 1;
         this._bedsCount = 1;
         this._minPrice = 20;
@@ -75,9 +79,11 @@ var SearchViewModel = (function (_super) {
             return this._minPrice;
         },
         set: function (value) {
-            if (this._minPrice !== value) {
+            if (this._minPrice !== value && value <= this._maxPrice) {
                 this._minPrice = value;
                 this.notifyPropertyChange("minPrice", value);
+            } else {
+                this.maxSlider.value = value;
             }
         },
         enumerable: true,
@@ -89,9 +95,11 @@ var SearchViewModel = (function (_super) {
             return this._maxPrice;
         },
         set: function (value) {
-            if (this._maxPrice !== value) {
+            if (this._maxPrice !== value && value >= this._minPrice) {
                 this._maxPrice = value;
                 this.notifyPropertyChange("maxPrice", value);
+            } else {
+                this.minSlider.value = value;
             }
         },
         enumerable: true,
@@ -107,33 +115,75 @@ var SearchViewModel = (function (_super) {
             return;
         }
         
-        var _context = this;
-        timer.setTimeout(function () {
-            _context.showInfo("You find");
-            _context.endLoading();
-            
-            navigationModule.navigateTo({
-                moduleName: "views/result/result",
-                backstackVisible: true
+        var error = null;
+        var _weakSelf = this;
+        mapsServices.maps.getCordsOfCity(this._city).then(
+            function (cords) {
+                var params = {
+                    "bedroomsCount": _weakSelf._bedroomsCount,
+                    "distance": _weakSelf._distance,
+                    "bedsCount": _weakSelf._bedsCount,
+                    "minPrice": _weakSelf._minPrice,
+                    "maxPrice": _weakSelf._maxPrice,
+                    "latitude": cords.lat,
+                    "longitude": cords.lng
+                };
+        
+                hotelsServices.hotels.find(params).then(
+                    function (hotels) {
+                         navigationModule.navigateTo({
+                            moduleName: viewsModule.views.result,
+                            backstackVisible: true,
+                            context: hotels.result
+                        });
+                    },
+                    function (e) {
+                        throw Error(e);
+                    });
+            }, function (err) {
+                error = err.message;
+            })
+            .then(function () {
+                _weakSelf.stopLoading();
             });
-        }, 2000);
+            
+        if (error) {
+            this.showError(error);
+        }
     };
 
     SearchViewModel.prototype.goToFavourites = function() {
         navigationModule.navigateTo({
-                moduleName: "views/favourites/favourites",
-                backstackVisible: true
-            });
+            moduleName: viewsModule.views.favorites,
+            backstackVisible: true
+        });
+    };
+    
+    SearchViewModel.prototype.goToSettings = function() {
+        navigationModule.navigateTo({
+            moduleName: viewsModule.views.settings,
+            backstackVisible: true
+        });
     };
     
     SearchViewModel.prototype.IsValidData = function () {
+        if (this._city === "") {
+            this.showError("Please enter a city.");
+            return false;
+        }
+        if (isNaN(this._distance) || this._distance <= 0) {
+            this.showError("Distance must be a number greater than zero.");
+            return false;
+        }
+        if (isNaN(this._bedroomsCount) || this._bedroomsCount <= 0) {
+            this.showError("Bedrooms count must be a number greater than zero.");
+            return false;
+        }
+        if (isNaN(this._bedsCount) || this._bedsCount <= 0) {
+            this.showError("Beds count must be a number greater than zero.");
+            return false;
+        }
         
-        console.log(this._city);
-        console.log(this._distance);
-        console.log(this._bedroomsCount);
-        console.log(this._bedsCount);
-        console.log(this._minPrice);
-        console.log(this._maxPrice);
         return true;
     };
     

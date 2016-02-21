@@ -6,7 +6,9 @@ var views = {
     "details": "views/details/details",
     "reviews": "views/reviews/reviews",
     "amenities":"views/amenities/amenities",
-    "gallery": "views/gallery/gallery"
+    "gallery": "views/gallery/gallery",
+    "favorites": "views/favorite/favorite",
+    "settings": "views/settings/settings"
 };
 
 exports.views = views;

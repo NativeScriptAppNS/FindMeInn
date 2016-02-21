@@ -1,5 +1,5 @@
 var viewModelBaseModule = require("../../common/view-model-base");
-var navigationModule = require("../../utils/navigation");
+var navigationModule = require("../../common/navigation");
 var timer = require("timer");
 
 var FavouritesViewModel = (function (_super) {

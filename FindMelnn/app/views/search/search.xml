@@ -14,33 +14,29 @@
         </ActionBar>
     </Page.actionBar>
     <ScrollView>
-      <GridLayout columns="*, 3*" rows="2*,*,*,*,*,*,*,*">      
+        <GridLayout columns="*, 3*" rows="2*,*,*,*,*,*,*,*">      
             <Image src="res://logo" cssClass="logo" stretch="none" col="0" row="0" colSpan="2" />
 
             <Label text="City:" textWrap="true" col="0" row="1"/>
             <TextField text="{{ city }}" hint="Enter a city" tocapitalizationType="none" autocorrect="false" col="1" row="1"/>
-        
 
             <Label text="Maximum distance:" textWrap="true" col="0" row="2"/>
             <TextField text="{{ distance }}" hint="Enter distance in km" autocapitalizationType="none" autocorrect="false" col="1" row="2" />
             
-            
             <Label text="Number of bedrooms:" textWrap="true" col="0" row="3"/>
             <TextField text="{{ bedroomsCount }}" hint="Enter the number of bedrooms" autocapitalizationType="none" autocorrect="false" col="1" row="3"/>   
          
-             
             <Label text="Number of beds:" textWrap="true" col="0" row="4"/>
             <TextField text="{{ bedsCount }}" hint="Enter the number of beds" autocapitalizationType="none" autocorrect="false" col="1" row="4"/>
-         
           
-            <Label text="Min price:" textWrap="true" col="0" row="5"/>
-            <Slider value="{{ minPrice }}" col="1" row="5"/>
+            <Label text="{{'Min price: ' + minPrice + '$'}}" textWrap="true" col="0" row="5"/>
+            <Slider id="minSlider" value="{{ minPrice }}" col="1" row="5"/>
             
-            <Label text="Max price:" textWrap="true" col="0" row="6"/>
-            <Slider value="{{ maxPrice }}" col="1" row="6"/>
+            <Label text="{{'Max price: ' + maxPrice + '$'}}" textWrap="true" col="0" row="6"/>
+            <Slider id="maxSlider" value="{{ maxPrice }}" col="1" row="6"/>
          
             <Button text="Find" tap="findButtonTap" cssClass="primaryButton" col="0" row="7" colSpan="2"/>
-        <ActivityIndicator busy="{{ isLoading }}" />
-      </GridLayout>
+            <ActivityIndicator busy="{{ isLoading }}" />
+        </GridLayout>
     </ScrollView>
 </Page>
