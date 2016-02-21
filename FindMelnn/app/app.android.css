@@ -11,10 +11,12 @@ Label {
     font-size: 15;
     vertical-align: center;
     margin-left: 10;
+    margin-bottom: 10;
 }
 
 TextField, TextView {
     margin: 10 10 10 10;
+    color: #57667c;
 }
 
 .appBarButton{
@@ -33,8 +35,9 @@ ActivityIndicator {
 }
 
 .header {
-    font-size: 26;
-    margin: 8 16 0 16;
+    font-size: 20;
+    margin: 10 10 10 10;
+    horizontal-align: center;
 }
 
 .logo {
@@ -59,4 +62,50 @@ ActivityIndicator {
 
 .signinTextField {
     margin: 10 20 10 20;
+}
+
+/*details page*/
+.bigLabel{
+    font-size: 20;
+
+}
+
+.detailsSmallButton{
+    background-color: #f3f5f7;
+    horizontal-align: center;
+    font-size: 10;
+    color: #57667c;
+    margin-top: 0;
+    padding: 0;
+}
+
+.detailsBigButton{
+    background-color: #f3f5f7;
+    horizontal-align: left;
+    font-size: 20;
+    color: #57667c;
+    text-transform: capitalize;
+}
+
+.description{
+    text-overflow: ellipsis;
+}
+
+/*amenities page*/
+
+.amenity{
+    padding: 10 10 10 10;
+    font-size: 15;
+}
+
+/*reviews page*/
+
+.review {
+    font-style: italic;
+    margin:10 10 0 15;
+}
+
+.reviewLabel {
+    text-align: right;
+    margin:0 20 0 15;
 }
