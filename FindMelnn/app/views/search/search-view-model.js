@@ -5,6 +5,7 @@ var navigationModule = require("../../common/navigation");
 var viewsModule = require("../../common/views");
 var hotelsServices = require("../../services/hotels");
 var mapsServices = require("../../services/maps");
+var geolocation = require("nativescript-geolocation");
 
 var SearchViewModel = (function (_super) {
     __extends(SearchViewModel, _super);
@@ -188,7 +189,14 @@ var SearchViewModel = (function (_super) {
     };
     
     SearchViewModel.prototype.getMyLocationTap = function () {
-        
+        geolocation.getCurrentLocation({timeout: 20000}).then(
+            function(loc) {
+                if (loc) {
+                    console.log("Current location is: " + loc);
+                }
+            }, function(e){
+                console.log("Error: " + e.message);
+            });
     };
     
     return SearchViewModel;
