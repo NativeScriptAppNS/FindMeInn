@@ -92,14 +92,12 @@ ActivityIndicator {
 }
 
 /*amenities page*/
-
 .amenity{
     padding: 10 10 10 10;
     font-size: 15;
 }
 
 /*reviews page*/
-
 .review {
     font-style: italic;
     margin:10 10 0 15;
@@ -108,4 +106,9 @@ ActivityIndicator {
 .reviewLabel {
     text-align: right;
     margin:0 20 0 15;
+}
+
+/*gallery page*/
+.image {
+    margin:10 0 10 0;
 }

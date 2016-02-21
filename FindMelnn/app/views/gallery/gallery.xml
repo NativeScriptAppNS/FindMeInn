@@ -1,3 +1,10 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" >
-	
+	<ListView items="{{ photos }}">				
+		<ListView.itemTemplate>
+			<GridLayout columns="2*,*" rows="*">
+				<Image src="{{large}}" col="0" row="0"/>
+				<Label text="{{caption}}" textWrap="true" col="1" row="0"/>
+			</GridLayout>
+		</ListView.itemTemplate>
+	</ListView>	
 </Page>
