@@ -112,3 +112,8 @@ ActivityIndicator {
 .image {
     margin:10 0 10 0;
 }
+
+.imageFullScreen{
+    visibility: collapsed;
+    margin-left: 50;
+}
