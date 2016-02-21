@@ -1,0 +1,9 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" >
+	<ListView items="{{ photos }}" itemTap="onImageTap">
+		<ListView.itemTemplate>
+			<GridLayout columns="*" rows="*">
+				<Image src="{{large}}" cssClass="image"/>
+			</GridLayout>
+		</ListView.itemTemplate>
+	</ListView>
+</Page>
