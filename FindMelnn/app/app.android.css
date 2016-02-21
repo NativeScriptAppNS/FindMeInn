@@ -110,10 +110,10 @@ ActivityIndicator {
 
 /*gallery page*/
 .image {
-    margin:10 0 10 0;
+    margin:15 0 0 0;
 }
 
-.imageFullScreen{
-    visibility: collapsed;
-    margin-left: 50;
+/*image page*/
+.imagePage {
+    background-color: #000000;
 }
