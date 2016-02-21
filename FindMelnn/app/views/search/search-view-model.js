@@ -187,6 +187,10 @@ var SearchViewModel = (function (_super) {
         return true;
     };
     
+    SearchViewModel.prototype.getMyLocationTap = function () {
+        
+    };
+    
     return SearchViewModel;
     
 })(viewModelBaseModule.ViewModelBase);

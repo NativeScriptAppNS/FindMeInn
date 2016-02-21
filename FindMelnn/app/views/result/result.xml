@@ -1,5 +1,5 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" >
-    <ListView items="{{ hotels }}" itemTap="{{ viewHotel }}" row="1">
+    <ListView items="{{ hotels }}" itemTap="{{ viewHotel }}">
       <ListView.itemTemplate>
         <StackLayout orientation="horizontal">
           <Image src="{{ photos[0].medium }}" stretch="none" width="100" height="100"/>
