@@ -2,6 +2,8 @@ var view = require("ui/core/view");
 var timer = require("timer");
 var viewModelBaseModule = require("../../common/view-model-base");
 var navigationModule = require("../../common/navigation");
+var viewsModule = require("../../common/views");
+var hotelsServices = require("../../services/hotels");
 var mapsServices = require("../../services/maps");
 
 var SearchViewModel = (function (_super) {
@@ -14,7 +16,6 @@ var SearchViewModel = (function (_super) {
         this._bedsCount = 1;
         this._minPrice = 20;
         this._maxPrice = 100;
-        this._cityCords = {};
     }
     
     Object.defineProperty(SearchViewModel.prototype, "city", {
@@ -114,34 +115,59 @@ var SearchViewModel = (function (_super) {
             return;
         }
         
-        var _context = this;
-        timer.setTimeout(function () {
-            _context.showInfo("You find");
-            _context.endLoading();
-            
-            navigationModule.navigateTo({
-                moduleName: "views/result/result",
-                backstackVisible: true
+        var error = null;
+        var _weakSelf = this;
+        mapsServices.maps.getCordsOfCity(this._city).then(
+            function (cords) {
+                var params = {
+                    "bedroomsCount": _weakSelf._bedroomsCount,
+                    "distance": _weakSelf._distance,
+                    "bedsCount": _weakSelf._bedsCount,
+                    "minPrice": _weakSelf._minPrice,
+                    "maxPrice": _weakSelf._maxPrice,
+                    "latitude": cords.lat,
+                    "longitude": cords.lng
+                };
+        
+                hotelsServices.hotels.find(params).then(
+                    function (hotels) {
+                         navigationModule.navigateTo({
+                            moduleName: viewsModule.views.result,
+                            backstackVisible: true,
+                            context: hotels.result
+                        });
+                    },
+                    function (e) {
+                        throw Error(e);
+                    });
+            }, function (err) {
+                error = err.message;
+            })
+            .then(function () {
+                _weakSelf.stopLoading();
             });
-        }, 2000);
+            
+        if (error) {
+            this.showError(error);
+        }
     };
 
     SearchViewModel.prototype.goToFavourites = function() {
         navigationModule.navigateTo({
-            moduleName: "views/favourites/favourites",
+            moduleName: viewsModule.views.favorites,
             backstackVisible: true
         });
     };
     
     SearchViewModel.prototype.goToSettings = function() {
         navigationModule.navigateTo({
-            moduleName: "views/settings/settings",
+            moduleName: viewsModule.views.settings,
             backstackVisible: true
         });
     };
     
     SearchViewModel.prototype.IsValidData = function () {
-        if (this._city == "") {
+        if (this._city === "") {
             this.showError("Please enter a city.");
             return false;
         }
@@ -155,20 +181,6 @@ var SearchViewModel = (function (_super) {
         }
         if (isNaN(this._bedsCount) || this._bedsCount <= 0) {
             this.showError("Beds count must be a number greater than zero.");
-            return false;
-        }
-        
-        var error = null;
-        var _weakSelf = this;
-        mapsServices.maps.getCordsOfCity(this._city).then(
-            function (cords) {
-                _weakSelf._cityCords = cords;
-            }, function (err) {
-                error = err.message;
-            });
-            
-        if (error) {
-            this.showError(error);
             return false;
         }
         
