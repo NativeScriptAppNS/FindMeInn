@@ -7,6 +7,9 @@ function navigatingTo(args) {
     var page = args.object;
     viewModel = new resultViewModelModule.ResultViewModel();
     viewModel.hotels = args.context;
+    // for (var key in args.context[0]) {
+    //     console.log(key);
+    // }
     page.bindingContext = viewModel;
 }
 

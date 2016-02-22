@@ -72,6 +72,7 @@ var Users = (function (_super) {
         
         return new Promise(
             function(resolve, reject) {
+                // for animation
                 timer.setTimeout(function () {
                     resolve();
                 }, 2000);

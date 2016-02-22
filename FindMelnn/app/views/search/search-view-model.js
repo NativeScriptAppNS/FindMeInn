@@ -1,5 +1,5 @@
-"use strict";
-
+var view = require("ui/core/view");
+var timer = require("timer");
 var viewModelBaseModule = require("../../common/view-model-base");
 var navigationModule = require("../../common/navigation");
 var viewsModule = require("../../common/views");
@@ -131,7 +131,7 @@ var SearchViewModel = (function (_super) {
         
                 hotelsServices.hotels.find(params).then(
                     function (hotels) {
-                         navigationModule.navigateTo({
+                        navigationModule.navigateTo({
                             moduleName: viewsModule.views.result,
                             backstackVisible: true,
                             context: hotels.result
@@ -152,18 +152,6 @@ var SearchViewModel = (function (_super) {
         }
     };
 
-    SearchViewModel.prototype.goToFavourites = function() {
-        hotelsServices.hotels.getAll()
-            .then(function(hotels){
-                navigationModule.navigateTo({
-                moduleName: viewsModule.views.details,
-                backstackVisible: true,
-                context: [hotels]
-            });
-        }); 
-
-    };
-    
     SearchViewModel.prototype.goToSettings = function() {
         navigationModule.navigateTo({
             moduleName: viewsModule.views.settings,

@@ -27,30 +27,13 @@ exports.dbInit = function () {
     }
 };
 
-
-
 // hotelsServices.hotels.addHotel({
 //     id: 1,
 //     param: "pesho"
 // });
-// hotelsServices.hotels.addHotel({
-//     id: 2,
-//     param: "pesho2"
-// });
-// hotelsServices.hotels.addHotel({
-//     id: 3,
-//     param: "pesho3"
-// });
-// hotelsServices.hotels.addHotel({
-//     id: 4,
-//     param: "pesho4"
-// });
-
-    
 
 //   hotelsServices.hotels.removeHotel(1).then(function () {
 //       hotelsServices.hotels.getAll().then(function (hotels) {
 //         console.log(hotels);
 //     });
 //   });
-//hotelsServices.hotels.getAll();

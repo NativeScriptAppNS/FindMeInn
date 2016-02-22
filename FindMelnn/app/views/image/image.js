@@ -12,6 +12,7 @@ function navigatingTo(args) {
     viewModel.imageView.opacity = 0;
     page.bindingContext = viewModel;
 
+
     var scaleArgs = 1;
     viewModel.imageView.on("pinch", function (args) {  
             console.log("new pinch");
@@ -47,7 +48,6 @@ function navigatingTo(args) {
         viewModel.goBackToGallery();
         
     });
-        
 }
 
 function navigatedTo(){
