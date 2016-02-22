@@ -1,4 +1,5 @@
-var viewModule = require("ui/core/view");
+"use strict";
+
 var mapViewModelModule = require("./map-view-model");
 
 var viewModel;

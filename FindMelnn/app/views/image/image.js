@@ -1,6 +1,7 @@
+"use strict";
+
 var imageViewModelModule = require("./image-view-model");
 var viewModule = require("ui/core/view");
-var timer = require("timer");
 
 var viewModel;
 function navigatingTo(args) {
@@ -37,7 +38,7 @@ function navigatingTo(args) {
     });
 
 //анимацията и обратната навигация се изпълняват едновременно и анимацията не се вижда :(
-    viewModel.imageView.on("longPress", function (args) {
+    viewModel.imageView.on("longPress", function () {
         viewModel.imageView.animate({
             opacity: 0,
             duration: 4000

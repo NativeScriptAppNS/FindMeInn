@@ -1,6 +1,6 @@
+"use strict";
+
 var viewModelBaseModule = require("../../common/view-model-base");
-var navigationModule = require("../../common/navigation");
-var timer = require("timer");
 
 var AmenitiesViewModel = (function (_super) {
     __extends(AmenitiesViewModel, _super);

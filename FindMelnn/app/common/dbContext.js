@@ -1,3 +1,5 @@
+"use strict";
+
 var Sqlite = require( "nativescript-sqlite");
 var constantsModule = require("./constants");
 

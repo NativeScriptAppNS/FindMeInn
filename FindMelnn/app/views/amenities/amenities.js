@@ -1,3 +1,5 @@
+"use strict";
+
 var amenitiesViewModelModule = require("./amenities-view-model");
 
 var viewModel;

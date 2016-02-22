@@ -1,3 +1,5 @@
+"use strict";
+
 var detailsViewModelModule = require("./details-view-model");
 
 var viewModel;

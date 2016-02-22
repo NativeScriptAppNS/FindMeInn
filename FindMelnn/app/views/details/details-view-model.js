@@ -1,8 +1,9 @@
+"use strict";
+
 var viewModelBaseModule = require("../../common/view-model-base");
 var navigationModule = require("../../common/navigation");
 var hotelServices = require("../../services/hotels");
 var viewsModule = require("../../common/views");
-var timer = require("timer");
 
 var DetailsViewModel = (function (_super) {
     __extends(DetailsViewModel, _super);
@@ -65,7 +66,7 @@ var DetailsViewModel = (function (_super) {
                      hotelServices.hotels.addHotel(_weakSelf.hotel).then(
                         function () {
                             _weakSelf.showInfo("Hotel Added!");
-                        }, function (e) {
+                        }, function () {
                             throw Error("Can't add this hotel.");
                         });
                 }, function (e) {

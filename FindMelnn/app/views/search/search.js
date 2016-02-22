@@ -1,3 +1,5 @@
+"use strict";
+
 var applicationSettingsModule = require("application-settings");
 var view = require("ui/core/view");
 var searchViewModelModule = require("./search-view-model");

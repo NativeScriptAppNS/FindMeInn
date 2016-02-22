@@ -1,3 +1,5 @@
+"use strict";
+
 var resultViewModelModule = require("./result-view-model");
 
 var viewModel;

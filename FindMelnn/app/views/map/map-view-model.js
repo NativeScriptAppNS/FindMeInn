@@ -1,3 +1,5 @@
+"use strict";
+
 var viewModelBaseModule = require("../../common/view-model-base");
 
 var MapViewModel = (function (_super) {

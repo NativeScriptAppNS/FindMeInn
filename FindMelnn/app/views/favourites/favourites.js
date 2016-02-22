@@ -1,3 +1,5 @@
+"use strict";
+
 var favouritesViewModelModule = require("./favourites-view-model");
 
 var viewModel;

@@ -1,3 +1,5 @@
+"use strict";
+
 var signupViewModelModule = require("./signup-view-model");
 
 var viewModel;

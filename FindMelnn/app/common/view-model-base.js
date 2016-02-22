@@ -1,3 +1,5 @@
+"use strict";
+
 var platformModule = require("platform");
 var observableModule = require("data/observable");
 var enumsModule = require("ui/enums");

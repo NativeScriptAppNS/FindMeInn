@@ -1,3 +1,5 @@
+"use strict";
+
 var signinViewModelModule = require("./signin-view-model");
 
 var viewModel;

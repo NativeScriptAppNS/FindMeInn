@@ -1,3 +1,5 @@
+"use strict";
+
 var settingsViewModelModule = require("./settings-view-model");
 
 var viewModel;

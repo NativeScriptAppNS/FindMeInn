@@ -1,5 +1,6 @@
+"use strict";
+
 var galleryViewModelModule = require("./gallery-view-model");
-var viewModule = require("ui/core/view");
 
 var viewModel;
 function navigatingTo(args) {

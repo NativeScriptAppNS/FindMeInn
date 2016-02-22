@@ -1,5 +1,5 @@
-var view = require("ui/core/view");
-var timer = require("timer");
+"use strict";
+
 var viewModelBaseModule = require("../../common/view-model-base");
 var navigationModule = require("../../common/navigation");
 var viewsModule = require("../../common/views");
@@ -153,12 +153,15 @@ var SearchViewModel = (function (_super) {
     };
 
     SearchViewModel.prototype.goToFavourites = function() {
-        var hotels = hotelsServices.hotels.getAll()
-        navigationModule.navigateTo({
-            moduleName: viewsModule.views.details,
-            backstackVisible: true,
-            context: []
-        });
+        hotelsServices.hotels.getAll()
+            .then(function(hotels){
+                navigationModule.navigateTo({
+                moduleName: viewsModule.views.details,
+                backstackVisible: true,
+                context: [hotels]
+            });
+        }); 
+
     };
     
     SearchViewModel.prototype.goToSettings = function() {

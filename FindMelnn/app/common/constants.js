@@ -1,3 +1,5 @@
+"use strict";
+
 var constants = {
     "parsecomheaders":{
         "X-Parse-Application-Id": "XSrXYnkAPvztIkvotVzYdlJbc7WZDVVaHVB0Q1CK",

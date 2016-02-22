@@ -1,3 +1,5 @@
+"use strict";
+
 var applicationSettingsModule = require("application-settings");
 var timer = require("timer");
 var http = require("http");

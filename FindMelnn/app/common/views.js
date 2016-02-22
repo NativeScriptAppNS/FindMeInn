@@ -1,3 +1,5 @@
+"use strict";
+
 var views = {
     "result": "views/result/result",
     "search": "views/search/search",
