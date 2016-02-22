@@ -9,7 +9,7 @@ function navigatingTo(args) {
 }
 
 function reviewsButtonTap(args) {
-    viewModel.goToReviews();
+    viewModel.goToReviews(); 
 }
 
 function amenitiesButtonTap(args) {
@@ -24,8 +24,13 @@ function addToFavouritesButtonTap(args){
 	viewModel.addToFavourites();
 }
 
+function showMapButtonTap() {
+    viewModel.showMapButtonTap();
+}
+
 exports.navigatingTo = navigatingTo;
 exports.reviewsButtonTap = reviewsButtonTap;
 exports.amenitiesButtonTap = amenitiesButtonTap;
 exports.addToFavouritesButtonTap = addToFavouritesButtonTap;
 exports.galleryButtonTap = galleryButtonTap;
+exports.showMapButtonTap = showMapButtonTap;

@@ -72,6 +72,14 @@ var DetailsViewModel = (function (_super) {
                     _weakSelf.showError(e.message);
                 });
     };
+    
+    DetailsViewModel.prototype.showMapButtonTap = function () {
+        navigationModule.navigateTo({
+            moduleName: viewsModule.views.map,
+            backstackVisible: true,
+            context: this.hotel.latLng
+        });
+    };
 
 return DetailsViewModel;
 

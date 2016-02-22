@@ -21,6 +21,7 @@ function navigatingTo(args) {
 function navigatedTo(){
 	viewModel.imageView.animate({
 	    opacity: 1,
+        duration: 1500
 	});
 }
 

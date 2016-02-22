@@ -1,0 +1,3 @@
+<Page navigatingTo="navigatingTo">
+    <WebView src="{{src}}" />
+</Page>

@@ -11,14 +11,13 @@ var GalleryViewModel = (function (_super) {
 
     GalleryViewModel.prototype.onImageTap = function(args) {
     	navigationModule.navigateTo({
-		moduleName: viewsModule.views.image,
-		backstackVisible: true,
-		context: this.photos[args.index]
-	});
+            moduleName: viewsModule.views.image,
+            backstackVisible: true,
+            context: this.photos[args.index]
+        });
     };
 
     return GalleryViewModel;
-
 })(viewModelBaseModule.ViewModelBase);
 
 exports.GalleryViewModel = GalleryViewModel;

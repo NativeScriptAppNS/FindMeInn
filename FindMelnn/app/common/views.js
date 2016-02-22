@@ -9,7 +9,8 @@ var views = {
     "gallery": "views/gallery/gallery",
     "image": "views/image/image",
     "favorites": "views/favorite/favorite",
-    "settings": "views/settings/settings"
+    "settings": "views/settings/settings",
+    "map": "views/map/map"
 };
 
 exports.views = views;

@@ -21,7 +21,7 @@
 			<Label text="{{hotel.attr.roomType.text}}" row="2" col="1" />
 			<Label text="{{hotel.location.all}}" textWrap="true" row="3" col="1" />
 			<Button text="&#xf397; Go to gallery"  cssClass="detailsSmallButton materialIcon" tap="galleryButtonTap" row="4" col="0" />
-			<Button text="&#xf1ab; Show on map" cssClass="detailsSmallButton materialIcon" row="4" col="1" />
+			<Button text="&#xf1ab; Show on map" cssClass="detailsSmallButton materialIcon" tap="showMapButtonTap" row="4" col="1" />
 			<Label cssClass="description" text="{{hotel.attr.description}}" textWrap="true" height="60"  row="5" col="0" colSpan="2"/>
 			<Label text="{{'Bathrooms:  '+hotel.attr.bathrooms}}" row="6" col="0"/>
 			<Label text="{{'Bedrooms:  '+hotel.attr.bedrooms}}" row="6" col="1"/>
