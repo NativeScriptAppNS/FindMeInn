@@ -131,7 +131,7 @@ var SearchViewModel = (function (_super) {
         
                 hotelsServices.hotels.find(params).then(
                     function (hotels) {
-                         navigationModule.navigateTo({
+                        navigationModule.navigateTo({
                             moduleName: viewsModule.views.result,
                             backstackVisible: true,
                             context: hotels.result
@@ -152,15 +152,6 @@ var SearchViewModel = (function (_super) {
         }
     };
 
-    SearchViewModel.prototype.goToFavourites = function() {
-        var hotels = hotelsServices.hotels.getAll()
-        navigationModule.navigateTo({
-            moduleName: viewsModule.views.details,
-            backstackVisible: true,
-            context: []
-        });
-    };
-    
     SearchViewModel.prototype.goToSettings = function() {
         navigationModule.navigateTo({
             moduleName: viewsModule.views.settings,

@@ -8,6 +8,8 @@ var Hotels = (function (_super) {
     }
     
     Hotels.prototype.addHotel = function(hotelObj) {
+        // console.log(hotelObj.id);
+        // console.log(JSON.stringify(hotelObj));
         return global.db.execSQL("insert into Hotels values (?, ?)", [hotelObj.id, JSON.stringify(hotelObj)]).then(
             function(id) {
                 return "Inserted!";
@@ -27,7 +29,13 @@ var Hotels = (function (_super) {
     
     Hotels.prototype.getAll = function() {
         return global.db.all("select * from Hotels").then(
-            function(hotels) {
+            function(dbHotelsArray) {
+                var hotels = [];
+                for (var i = 0; i < dbHotelsArray.length; i++) {
+                    var hotel = JSON.parse(dbHotelsArray[i][1]);
+                    hotels.push(hotel);
+                }
+                
                 return hotels;
             }, function(err){
                 throw Error(err);

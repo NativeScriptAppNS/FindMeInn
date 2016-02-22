@@ -28,7 +28,7 @@ function settingsButtonTap() {
 }
 
 function favButtonTap() {
-	viewModel.goToFavourites();
+    navigationModule.goToFavourites();
 }
 
 function getMyLocationTap() {

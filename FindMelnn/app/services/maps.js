@@ -59,7 +59,6 @@ var Maps = (function (_super) {
     
     Maps.prototype.getMyCity = function () {
         var _weakSelf = this;
-        
         return this.getMyLocation().then(
             function (cords) {
                 return _weakSelf.getCityNameByCords(cords).then(
