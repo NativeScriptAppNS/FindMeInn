@@ -11,17 +11,48 @@ function navigatingTo(args) {
     viewModel.imageView.opacity = 0;
     page.bindingContext = viewModel;
 
-    // console.log(viewModel.image.xlarge);
-    viewModel.imageView.on("swipe", function (args) {
 
-	    // console.log("Swipe Direction: " + args.direction);
-	});
+    var scaleArgs = 1;
+    viewModel.imageView.on("pinch", function (args) {  
+            console.log("new pinch");
+            if(scaleArgs > 3.7 || scaleArgs < 0.3) {
+                return;
+            }
+        if(args.scale < 1) {  
+        console.log('args.scale  '+args.scale);  
+            viewModel.imageView.animate({
+               scale: { x: scaleArgs, y: scaleArgs},
+               duration: 800
+            });
+            console.log(scaleArgs);
+            scaleArgs -= scaleArgs * 0.05;
+        } else if (args.scale > 1){
+            console.log('args.scale  '+args.scale);
+            viewModel.imageView.animate({
+               scale: { x: scaleArgs, y: scaleArgs},
+               duration: 800
+            });
+            console.log(scaleArgs);
+            scaleArgs += scaleArgs * 0.05;
+        }
+    });
+
+//анимацията и обратната навигация се изпълняват едновременно и анимацията не се вижда :(
+    viewModel.imageView.on("longPress", function (args) {
+        viewModel.imageView.animate({
+            opacity: 0,
+            duration: 4000
+        });
+
+        viewModel.goBackToGallery();
+        
+    });
 }
 
 function navigatedTo(){
 	viewModel.imageView.animate({
 	    opacity: 1,
-        duration: 1500
+        duration: 2000
 	});
 }
 
