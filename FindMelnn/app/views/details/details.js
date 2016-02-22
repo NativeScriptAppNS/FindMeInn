@@ -8,8 +8,8 @@ function navigatingTo(args) {
     viewModel = new detailsViewModelModule.DetailsViewModel();
     viewModel.hotel = args.context;
     page.bindingContext = viewModel;
+    
 }
-
 function reviewsButtonTap(args) {
     viewModel.goToReviews(); 
 }
