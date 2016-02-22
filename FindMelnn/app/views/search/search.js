@@ -25,21 +25,13 @@ function findButtonTap(args) {
     viewModel.find();
 }
 
-function settingsButtonTap() {
-    navigationModule.goToSettings();
-}
-
-function favButtonTap() {
-    navigationModule.goToFavourites();
-}
-
 function getMyLocationTap() {
     viewModel.getMyLocationTap();
 }
 
 exports.navigatingTo = navigatingTo;
 exports.findButtonTap = findButtonTap;
-exports.favButtonTap = favButtonTap;
 exports.navigatedTo = navigatedTo;
 exports.getMyLocationTap = getMyLocationTap;
-exports.settingsButtonTap = settingsButtonTap;
+exports.settingsButtonTap = navigationModule.goToSettings;
+exports.favButtonTap = navigationModule.goToFavourites;

@@ -1,6 +1,6 @@
 "use strict";
 
-var Sqlite = require( "nativescript-sqlite");
+var Sqlite = require("nativescript-sqlite");
 var constantsModule = require("./constants");
 
 exports.dbInit = function () {
@@ -14,7 +14,7 @@ exports.dbInit = function () {
                 global.db = db;
             }
             
-            global.db.execSQL("CREATE TABLE `Hotels` (`HotelId`	TEXT NOT NULL, `Hotel` TEXT NOT NULL, PRIMARY KEY(HotelId))"); 
+            global.db.execSQL("CREATE TABLE `Hotels` (`HotelId`	TEXT NOT NULL, `Hotel`	TEXT NOT NULL, `username` TEXT NOT NULL, PRIMARY KEY(HotelId))"); 
         });  
 	} else {
         return new Sqlite(constantsModule.constants.favoritesdbname, function(err, db) {
@@ -26,14 +26,3 @@ exports.dbInit = function () {
         });
     }
 };
-
-// hotelsServices.hotels.addHotel({
-//     id: 1,
-//     param: "pesho"
-// });
-
-//   hotelsServices.hotels.removeHotel(1).then(function () {
-//       hotelsServices.hotels.getAll().then(function (hotels) {
-//         console.log(hotels);
-//     });
-//   });

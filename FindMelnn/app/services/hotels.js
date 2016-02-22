@@ -2,6 +2,7 @@
 
 var http = require("http");
 var constantsModule = require("../common/constants");
+var usersModule = require("./users");
 
 var Hotels = (function (_super) {
     __extends(Hotels, _super);
@@ -10,9 +11,9 @@ var Hotels = (function (_super) {
     }
     
     Hotels.prototype.addHotel = function(hotelObj) {
-        // console.log(hotelObj.id);
-        // console.log(JSON.stringify(hotelObj));
-        return global.db.execSQL("insert into Hotels values (?, ?)", [hotelObj.id, JSON.stringify(hotelObj)]).then(
+        var username = usersModule.users.getUsername();
+        
+        return global.db.execSQL("insert into Hotels values (?, ?, ?)", [hotelObj.id, JSON.stringify(hotelObj), username]).then(
             function(id) {
                 return "Inserted!";
             }, function(err) {
@@ -30,12 +31,17 @@ var Hotels = (function (_super) {
     };
     
     Hotels.prototype.getAll = function() {
+        var username = usersModule.users.getUsername();
+        
         return global.db.all("select * from Hotels").then(
             function(dbHotelsArray) {
                 var hotels = [];
                 for (var i = 0; i < dbHotelsArray.length; i++) {
                     var hotel = JSON.parse(dbHotelsArray[i][1]);
-                    hotels.push(hotel);
+                    var user = dbHotelsArray[i][2];
+                    if (user == username) {
+                        hotels.push(hotel);
+                    }
                 }
                 
                 return hotels;

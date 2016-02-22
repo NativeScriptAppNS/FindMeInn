@@ -1,6 +1,7 @@
 "use strict";
 
 var detailsViewModelModule = require("./details-view-model");
+var navigationModule = require("../../common/navigation");
 
 var viewModel;
 function navigatingTo(args) {
@@ -36,3 +37,5 @@ exports.amenitiesButtonTap = amenitiesButtonTap;
 exports.addToFavouritesButtonTap = addToFavouritesButtonTap;
 exports.galleryButtonTap = galleryButtonTap;
 exports.showMapButtonTap = showMapButtonTap;
+exports.settingsButtonTap = navigationModule.goToSettings;
+exports.favButtonTap = navigationModule.goToFavourites;
