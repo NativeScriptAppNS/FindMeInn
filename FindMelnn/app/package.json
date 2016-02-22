@@ -1,12 +1,12 @@
 {
-    "name": "tns-template-hello-world",
+    "name": "findmeinn",
     "main": "app.js",
     "version": "1.5.1",
     "author": {
-        "name": "Telerik",
-        "email": "support@telerik.com"
+        "name": "Nikola&Stella",
+        "email": ""
     },
-    "description": "Nativescript hello-world project template",
+    "description": "FindMeInn",
     "license": "Apache-2.0",
     "keywords": [
         "telerik",
@@ -19,16 +19,16 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git://github.com/NativeScript/template-hello-world.git"
+        "url": "git://github.com/NativeScriptAppNS/FindMeInn.git"
     },
     "bugs": {
-        "url": "https://github.com/NativeScript/template-hello-world/issues"
+        "url": "https://github.com/NativeScriptAppNS/FindMeInn/issues"
     },
-    "homepage": "https://github.com/NativeScript/template-hello-world",
+    "homepage": "https://github.com/NativeScriptAppNS/FindMeInn",
     "android": {
         "v8Flags": "--expose_gc"
     },
-    "readme": "ERROR: No README data found!",
-    "_id": "tns-template-hello-world@1.5.1",
-    "_from": "tns-template-hello-world@1.5.1"
+    "readme": "README.md",
+    "_id": "findmeinn@1.5.1",
+    "_from": "findmeinn@1.5.1"
 }

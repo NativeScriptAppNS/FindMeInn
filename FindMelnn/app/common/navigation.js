@@ -1,5 +1,6 @@
 var frameModule = require("ui/frame");
 var viewsModule = require("./views");
+var hotelsServices = require("../services/hotels");
 
 function navigateTo(navigationEntry) {
     var topmost = frameModule.topmost();
@@ -11,12 +12,23 @@ function goBack() {
     topmost.goBack();
 }
 
-function goToFavourites(context) {
-    navigateTo({
-        moduleName: viewsModule.views.details,
-        backstackVisible: true,
-        context: context
-    });
+function goToFavourites() {
+    hotelsServices.hotels.getAll().then(
+        function (dbHotels) {
+            var hotels = [];
+            for (var id in dbHotels) {
+                hotels.push(dbHotels[id][1]);
+            }
+            
+            navigateTo({
+                moduleName: viewsModule.views.result,
+                backstackVisible: true,
+                context: hotels
+            });
+        }, 
+        function (e) {
+            console.error(e.message);
+        });
 }
     
 function goToSettings() {
