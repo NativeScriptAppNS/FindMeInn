@@ -14,12 +14,7 @@ function goBack() {
 
 function goToFavourites() {
     hotelsServices.hotels.getAll().then(
-        function (dbHotels) {
-            var hotels = [];
-            for (var id in dbHotels) {
-                hotels.push(dbHotels[id][1]);
-            }
-            
+        function (hotels) {
             navigateTo({
                 moduleName: viewsModule.views.result,
                 backstackVisible: true,

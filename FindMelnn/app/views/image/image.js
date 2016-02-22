@@ -11,10 +11,10 @@ function navigatingTo(args) {
     viewModel.imageView.opacity = 0;
     page.bindingContext = viewModel;
 
-    console.log(viewModel.image.xlarge);
+    // console.log(viewModel.image.xlarge);
     viewModel.imageView.on("swipe", function (args) {
 
-	    console.log("Swipe Direction: " + args.direction);
+	    // console.log("Swipe Direction: " + args.direction);
 	});
 }
 
