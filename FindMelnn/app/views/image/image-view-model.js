@@ -2,7 +2,6 @@
 
 var viewModelBaseModule = require("../../common/view-model-base");
 var navigationModule = require("../../common/navigation");
-var navigationModule = require("../../common/navigation");
 
 var ImageViewModel = (function (_super) {
     __extends(ImageViewModel, _super);
