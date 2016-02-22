@@ -79,6 +79,10 @@ var Users = (function (_super) {
         });
     };
     
+    Users.prototype.getUsername = function () {
+        return applicationSettingsModule.getString("username");
+    };
+    
     return Users;
 })(Object);
 
