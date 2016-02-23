@@ -7,7 +7,7 @@ var dbModule = require("./common/dbContext");
 
 application.cssFile = "./app.css";
 
-application.onLaunch = function(context) {
+application.onLaunch = function() {
     dbModule.dbInit();
     
     if (usersServices.users.isSignedIn) {

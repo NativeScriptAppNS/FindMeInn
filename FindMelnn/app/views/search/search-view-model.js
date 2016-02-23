@@ -1,5 +1,5 @@
-var view = require("ui/core/view");
-var timer = require("timer");
+"use strict";
+
 var viewModelBaseModule = require("../../common/view-model-base");
 var navigationModule = require("../../common/navigation");
 var viewsModule = require("../../common/views");

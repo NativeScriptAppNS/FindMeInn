@@ -9,7 +9,7 @@ var ImageViewModel = (function (_super) {
         _super.call(this);       
     }
 
-    ImageViewModel.prototype.goBackToGallery = function(args) {
+    ImageViewModel.prototype.goBackToGallery = function() {
     	navigationModule.goBack();
     };
     

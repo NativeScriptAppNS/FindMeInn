@@ -77,7 +77,7 @@ var SignupViewModel = (function (_super) {
                     }, function () {
                         throw Error();
                     });
-            }, function (e) {
+            }, function () {
                 _weakThis.showError("Can't signup!");
             }).then(function () {
                 _weakThis.endLoading();

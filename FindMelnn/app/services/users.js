@@ -71,7 +71,7 @@ var Users = (function (_super) {
         applicationSettingsModule.remove("password");
         
         return new Promise(
-            function(resolve, reject) {
+            function(resolve) {
                 // for animation
                 timer.setTimeout(function () {
                     resolve();

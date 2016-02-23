@@ -21,7 +21,7 @@ function navigatedTo(args) {
     }
 }
 
-function findButtonTap(args) {
+function findButtonTap() {
     viewModel.find();
 }
 

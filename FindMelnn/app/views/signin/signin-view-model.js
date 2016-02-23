@@ -57,7 +57,7 @@ var SigninViewModel = (function (_super) {
                     moduleName: viewsModule.views.search,
                     clearHistory: true
                 });
-            }, function (e) {
+            }, function () {
                 _weakThis.showError("Can't singin!");
             }).then(function(){
                 _weakThis.endLoading();

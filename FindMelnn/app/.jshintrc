@@ -1,3 +1,6 @@
 {
-    "-W117": false
+    "node": true,
+    "globals": {
+    	"__extends": true
+    }
 }

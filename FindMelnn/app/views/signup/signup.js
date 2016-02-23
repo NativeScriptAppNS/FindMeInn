@@ -9,7 +9,7 @@ function navigatingTo(args) {
     page.bindingContext = viewModel;
 }
 
-function signupButtonTap(args) {
+function signupButtonTap() {
     viewModel.signup();
 }
 

@@ -23,7 +23,7 @@ var SettingsViewModel = (function (_super) {
                     moduleName: viewsModule.views.signin,
                     clearHistory: true
                 });
-            }, function (e) {
+            }, function () {
                 _weakThis.showError("Can't signout!");
             }).then(function(){
                 _weakThis.endLoading();

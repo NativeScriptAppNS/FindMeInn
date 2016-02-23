@@ -14,7 +14,7 @@ var Hotels = (function (_super) {
         var username = usersModule.users.getUsername();
         
         return global.db.execSQL("insert into Hotels values (?, ?, ?)", [hotelObj.id, JSON.stringify(hotelObj), username]).then(
-            function(id) {
+            function() {
                 return "Inserted!";
             }, function(err) {
                 throw Error(err);

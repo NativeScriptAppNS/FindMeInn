@@ -9,7 +9,7 @@ function navigatingTo(args) {
     page.bindingContext = viewModel;
 }
 
-function signuotButtonTap(args) {
+function signuotButtonTap() {
     viewModel.signout();
 }
 

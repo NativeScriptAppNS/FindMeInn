@@ -18,19 +18,19 @@ function navigatingTo(args) {
 	});
 }
 
-function reviewsButtonTap(args) {
+function reviewsButtonTap() {
     viewModel.goToReviews(); 
 }
 
-function amenitiesButtonTap(args) {
+function amenitiesButtonTap() {
 	viewModel.goToAmenities();
 }
 
-function galleryButtonTap(args) {
+function galleryButtonTap() {
 	viewModel.goToGallery();
 }
 
-function addToFavouritesButtonTap(args){
+function addToFavouritesButtonTap(){
 	viewModel.addToFavourites();
 }
 

@@ -11,7 +11,7 @@ function navigatingTo(args) {
     page.bindingContext = viewModel;
 }
 
-function viewHotel(args) {
+function viewHotel() {
     viewModel.viewHotel();
 }
 
