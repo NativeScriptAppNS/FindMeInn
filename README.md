@@ -9,7 +9,6 @@ to filter them according to different criteria, it is the best app to find you t
 * search for accomodation with filters
 * see suitable results
 * check each in detail
-* reserve it 
 * add it to favourites
 
 ### Pages:
@@ -18,10 +17,10 @@ to filter them according to different criteria, it is the best app to find you t
 * Search
 * Results
 * Details
-* Reserve
+* Favourites
 
 ### Data:
-* Remote: parse.com - User (username, password, profile pic/info/, balance(money))
+* Remote: parse.com - User (username, password)
 * Local: sqlite- favourite places
 
 ### APIs
@@ -31,10 +30,7 @@ to filter them according to different criteria, it is the best app to find you t
 
 ### Notifications
 * on login - success/fail
-* on reserve(pay) - success/fail
+* on add to favourites - success/fail
 
 ### Animations and Gestures
 
-TODO: multiple languages
-TODO: change theme
-TODO: http requset timeout
