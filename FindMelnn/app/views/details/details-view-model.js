@@ -25,6 +25,14 @@ var DetailsViewModel = (function (_super) {
         configurable: true
     });
 
+    DetailsViewModel.prototype.showDescription = function() {
+        navigationModule.navigateTo({
+            moduleName: viewsModule.views.description,
+            backstackVisible: true,
+            context: this.hotel.attr.description
+        });
+    };
+
     DetailsViewModel.prototype.goToReviews = function() {
         navigationModule.navigateTo({
             moduleName: viewsModule.views.reviews,

@@ -1,4 +1,16 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" >
+  <Page.actionBar>
+        <ActionBar title="Title">
+          <ActionBar.titleView>
+            <GridLayout columns="70*, 15*, 15*">
+                <StackLayout orientation="horizontal" col="0" row="0">
+                    <Image src="res://icon" width="50px"/>
+                    <Label text="FindMeInn" />
+                </StackLayout>
+            </GridLayout>
+          </ActionBar.titleView>
+        </ActionBar>
+    </Page.actionBar>
   <GridLayout>
     <ScrollView>
       <StackLayout>
@@ -7,6 +19,8 @@
         <TextField text="{{ username }}" hint="Enter your username" autocapitalizationType="none" autocorrect="false" />
         <Border />
         <TextField text="{{ password }}" secure="true" hint="Enter your password" />
+        <Border />
+        <TextField text="{{ confirmPassword }}" secure="true" hint="Confirm password" />
         <Border />
         <Button text="SignUp" tap="signupButtonTap" cssClass="primaryButton"/>
       </StackLayout>

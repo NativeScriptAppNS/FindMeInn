@@ -18,9 +18,9 @@
         <StackLayout orientation="horizontal">
           <Image src="{{ photos[0].medium }}" stretch="none" width="100" height="100"/>
           <StackLayout orientation="vertical">
-            <Label text="{{ attr.heading }}" textWrap="true" />
-            <Label text="{{ location.all }}" textWrap="true" />
+            <Label text="{{ attr.heading }}" textWrap="true" cssClass="heading"/>
             <Label text="{{ attr.propType.text }}" textWrap="true" />
+            <Label text="{{ location.all }}" textWrap="true" cssClass="address" />
           </StackLayout>
         </StackLayout>
       </ListView.itemTemplate>

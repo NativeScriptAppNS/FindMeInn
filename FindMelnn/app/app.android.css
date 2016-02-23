@@ -64,6 +64,17 @@ ActivityIndicator {
     margin: 10 20 10 20;
 }
 
+/* results page */
+.heading{
+    font-size: 18;
+}
+
+.address{
+    font-size: 13;
+    text-align: right;
+    margin-right: 10;
+}
+
 /*details page*/
 .bigLabel{
     font-size: 20;

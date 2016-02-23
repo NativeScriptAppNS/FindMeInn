@@ -14,8 +14,8 @@
         </ActionBar>
     </Page.actionBar>
 	<ScrollView>
-		<GridLayout columns="*,*" rows="2*,4*,2*,2*,*,3*,2*,2*,2*,2*,2*,2*,2*,2*,*,2*">
-			<Label text="{{hotel.attr.heading}}" cssClass="header" row="0" col="0" colSpan="2"/> 
+		<GridLayout columns="*,*" rows="4*,8*,4*,4*,*,3*,4*,4*,4*,4*,4*,4*,4*,4*,2*,4*">
+			<Label text="{{hotel.attr.heading}}" textWrap="true" cssClass="header" row="0" col="0" colSpan="2"/> 
 			<Image src="{{hotel.photos[0].medium}}" width="200" row="1" col="0" rowSpan="3"/> 
 			<Label text="{{hotel.attr.propType.text}}" row="1" col="1"/>
 			<Label text="{{hotel.attr.roomType.text}}" row="2" col="1" />

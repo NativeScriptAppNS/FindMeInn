@@ -1,4 +1,4 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" >
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
 	<Page.actionBar>
         <ActionBar title="Title">
           <ActionBar.titleView>
@@ -13,12 +13,10 @@
           </ActionBar.titleView>
         </ActionBar>
     </Page.actionBar>
-	<ListView items="{{ photos }}" itemTap="onImageTap">
-		<ListView.itemTemplate>
-			<GridLayout columns="*" rows="*,*">
-                <Label text="{{caption}}" textWrap="true"/>
-				<Image src="{{large}}" cssClass="image"/>
-			</GridLayout>
-		</ListView.itemTemplate>
-	</ListView>
+    <StackLayout>
+          <Label text="Description" cssClass="header"/>
+          <ScrollView>
+            <Label text="{{description}}" textWrap="true"/>
+          </ScrollView>
+     </StackLayout>
 </Page>

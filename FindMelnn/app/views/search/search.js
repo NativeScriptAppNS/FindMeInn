@@ -17,7 +17,7 @@ function navigatingTo(args) {
 function navigatedTo(args) {
     if (!args.isBackNavigation) {
         var username = applicationSettingsModule.getString("username");
-        viewModel.showInfo("Hallo " + username + '!');
+        viewModel.showInfo("Heromello " + username + '!');
     }
 }
 

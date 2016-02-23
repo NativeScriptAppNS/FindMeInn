@@ -11,6 +11,7 @@ var SignupViewModel = (function (_super) {
         _super.call(this);
         this._username = "";
         this._password = "";
+        this._confirmPassword = "";
     }
     
     Object.defineProperty(SignupViewModel.prototype, "username", {
@@ -35,6 +36,20 @@ var SignupViewModel = (function (_super) {
             if (this._password !== value) {
                 this._password = value;
                 this.notifyPropertyChange("password", value);
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+
+    Object.defineProperty(SignupViewModel.prototype, "confirmPassword", {
+        get: function () {
+            return this._confirmPassword;
+        },
+        set: function (value) {
+            if (this._confirmPassword !== value) {
+                this._confirmPassword = value;
+                this.notifyPropertyChange("confirmPassword", value);
             }
         },
         enumerable: true,
@@ -77,6 +92,12 @@ var SignupViewModel = (function (_super) {
         
         if (!this.password || this.password === "") {
             this.showError("Please enter password.");
+            return false;
+        }
+
+        if ((!this.confirmPassword || this.confirmPassword === "") || 
+                (this.password != this.confirmPassword)) {
+            this.showError("Password and confirm password are not equal. Please enter your password.");
             return false;
         }
         
