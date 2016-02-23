@@ -1,3 +1,17 @@
 <Page navigatingTo="navigatingTo">
+	<Page.actionBar>
+        <ActionBar title="Title">
+          <ActionBar.titleView>
+            <GridLayout columns="70*, 15*, 15*">
+                <StackLayout orientation="horizontal" col="0" row="0">
+                    <Image src="res://icon" width="50px"/>
+                    <Label text="FindMeInn" />
+                </StackLayout>
+                <Button text="&#xf1c6;" cssClass="appBarButton materialIcon" tap="settingsButtonTap" col="1" row="0" />
+                <Button text="&#xf15f;" cssClass="appBarButton materialIcon" tap="favButtonTap"  col="2" row="0" />
+            </GridLayout>
+          </ActionBar.titleView>
+        </ActionBar>
+    </Page.actionBar>
     <WebView src="{{src}}" />
 </Page>
